@@ -2,7 +2,9 @@
 !*.yaml
 !.gitignore
 !*.md
+!www
 !www/*
+!Docs
 !Docs/*
 
 ip_bans.yaml
