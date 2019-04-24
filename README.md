@@ -5,14 +5,13 @@ Frontend
 ![alt text](https://github.com/Beachviolence/Home-Assistant/blob/master/Docs/Hjem.PNG?raw=true)
 
 Livingroom
-![alt text](https://github.com/Beachviolence/Home-Assistant/blob/master/docs/stue.PNG?raw=true)
+![alt text](https://github.com/Beachviolence/Home-Assistant/blob/master/Docs/stue.PNG?raw=true)
 
 Bedroom
-![alt text](https://github.com/Beachviolence/Home-Assistant/blob/master/docs/soverom.PNG?raw=true)
+![alt text](https://github.com/Beachviolence/Home-Assistant/blob/master/Docs/soverom.PNG?raw=true)
 
 Map
-Appdemon
-![alt text](https://github.com/Beachviolence/Home-Assistant/blob/master/docs/map.PNG?raw=true)
+![alt text](https://github.com/Beachviolence/Home-Assistant/blob/master/Docs/Kart.PNG?raw=true)
 
 Appdemon
-![alt text](https://github.com/Beachviolence/Home-Assistant/blob/master/docs/iPad.PNG?raw=true)
+![alt text](https://github.com/Beachviolence/Home-Assistant/blob/master/Docs/iPad.PNG?raw=true)
