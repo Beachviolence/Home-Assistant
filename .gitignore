@@ -2,8 +2,8 @@
 !*.yaml
 !.gitignore
 !*.md
-!www
-!Docs
+!/www
+!/Docs
 
 ip_bans.yaml
 secrets.yaml
