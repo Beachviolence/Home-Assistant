@@ -1,0 +1,77 @@
+# WEATHER SENSORS
+- platform: yr
+  name: Weather
+  forecast: 24
+  monitored_conditions:
+    - temperature
+    - symbol
+    - windSpeed
+    - pressure
+    - windDirection
+    - humidity
+    - cloudiness
+
+# ALARM CLOCK
+- platform: template
+  sensors:
+    alarm_clock_time:
+      friendly_name: 'Tidspunkt'
+      icon_template: 'mdi:alarm'
+      value_template: '{{ "%0.02d:%0.02d" | format(states.input_number.alarm_clock_hour.state | int, states.input_number.alarm_clock_minute.state | int ) }}'
+      
+    alarm_clock_fade_in_minutes:
+      friendly_name: 'Myk oppvåkning'
+      icon_template: 'mdi:gradient'
+      value_template: '{{ states.input_number.alarm_clock_fade_in_minutes.state | int }}'
+
+# TIME AND DATE SENSORS
+- platform: time_date
+  display_options:
+  - 'time'
+  - 'date'
+  - 'date_time'
+  - 'time_date'
+
+  #### POW 1 ####
+- platform: mqtt
+  name: POW1 Current
+  state_topic: "sonoffPOW1/tele/SENSOR"
+  value_template: "{{ value_json.ENERGY.Current }}"
+  unit_of_measurement: 'A'
+- platform: mqtt
+  name: POW1 Power
+  state_topic: "sonoffPOW1/tele/SENSOR"
+  value_template: "{{ value_json.ENERGY.Power }}"
+  unit_of_measurement: 'W'
+- platform: mqtt
+  name: POW1 Voltage
+  state_topic: "sonoffPOW1/tele/SENSOR"
+  value_template: "{{ value_json.ENERGY.Voltage }}"
+  unit_of_measurement: 'V'
+- platform: mqtt
+  name: POW1 today
+  state_topic: "sonoffPOW1/tele/SENSOR"
+  value_template: "{{ value_json.ENERGY.Today }}"
+  unit_of_measurement: 'kWh'
+  
+#### POW 2 ####
+- platform: mqtt
+  name: POW2 Current
+  state_topic: "sonoffPOW2/tele/SENSOR"
+  value_template: "{{ value_json.ENERGY.Current }}"
+  unit_of_measurement: 'A'
+- platform: mqtt
+  name: POW2 Power
+  state_topic: "sonoffPOW2/tele/SENSOR"
+  value_template: "{{ value_json.ENERGY.Power }}"
+  unit_of_measurement: 'W'
+- platform: mqtt
+  name: POW2 Voltage
+  state_topic: "sonoffPOW2/tele/SENSOR"
+  value_template: "{{ value_json.ENERGY.Voltage }}"
+  unit_of_measurement: 'V'
+- platform: mqtt
+  name: POW2 today
+  state_topic: "sonoffPOW2/tele/SENSOR"
+  value_template: "{{ value_json.ENERGY.Today }}"
+  unit_of_measurement: 'kWh'

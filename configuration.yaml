@@ -1,0 +1,289 @@
+#### CONFIGURATION ####
+
+homeassistant:
+  name: Home
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: 50
+  unit_system: metric
+  time_zone: !secret timezone
+  customize: !include customize.yaml
+
+
+frontend: !include frontend.yaml
+config: # Enables configuration UI
+updater: # Optional, allows Home Assistant developers to focus on popular components.
+discovery: # Discover some devices automatically
+conversation: # Allows you to issue voice commands from the frontend in enabled browsers
+history: # Enables support for tracking state changes over time
+logbook: # View all events in a logbook
+map: # Enables a map showing the location of tracked devices
+ios:
+sun: # Track the sun
+system_health:
+
+
+# ZONE
+zone:
+  - name: Haakonsvern
+    latitude: !secret hos_latitude
+    longitude: !secret hos_longitude
+    radius: 500
+    icon: mdi:castle
+  - name: SKSK
+    icon: mdi:school
+    latitude: !secret sksk_latitude
+    longitude: !secret sksk_longitude
+    radius: 300
+
+
+# LOVELACE
+lovelace:
+  mode: yaml
+  
+# SENSORS
+sensor: !include sensors.yaml
+
+# SWITCHES
+switch: !include switches.yaml
+
+# GROUPS
+group: !include groups.yaml
+
+# AUTOMATIONS
+automation: !include automations.yaml
+
+# SCRIPTS
+script: !include scripts.yaml
+
+# LIGHTS
+light: !include lights.yaml
+  
+  
+# TEXT TO SPEECH
+tts:
+  - platform: google
+    # base_url: !secret tts_url
+    language: 'no'
+
+    
+# CLOUD
+cloud:
+  alexa:
+    filter:
+      include_entities:
+        - switch.vacuum
+        - script.vacuum_kitchen
+        - switch.sonoffpow2
+
+
+# XIAOMI-VACUUM
+vacuum:
+  - platform: xiaomi_miio
+    host: 192.168.1.144
+    token: !secret vacuum_token
+    name: Vacuum
+
+    
+# DUCKDNS/SSL
+# http:
+  # base_url: !secret http_url
+  # ssl_certificate: /ssl/fullchain.pem
+  # ssl_key: /ssl/privkey.pem
+  # api_password: !secret http_password
+  # trusted_networks:
+    # - 192.168.1.1
+  # login_attempts_threshold: 5
+
+  
+# CONFIGURATOR
+panel_iframe:
+  configurator:
+    title: Configurator
+    icon: mdi:wrench
+    url: !secret configurator_url
+  # terminal:
+    # title: Terminal
+    # icon: mdi:console
+    # url: !secret ssh_address
+  esphome:
+    title: ESPHome
+    icon: mdi:chip
+    url: !secret esphome_url
+  tasmoadmin:
+    title: TasmoAdmin
+    icon: mdi:light-switch
+    url: !secret tasmoadmin_url
+  visualstudio:
+    title: VS Code
+    icon: mdi:visual-studio-code
+    url: !secret vscode_url
+  appdaemon:
+    title: HAdashboard
+    icon: mdi:tablet-ipad
+    url: !secret hadashboard_url
+  motioneye:
+    title: MotionEye
+    icon: mdi:cctv
+    url: !secret motioneye_url
+
+    
+# TRACKING
+device_tracker:
+  # - platform: icloud
+    # username: !secret ios_username
+    # password: !secret ios_password
+    # account_name: Simon
+  - platform: nmap_tracker
+    hosts: 192.168.1.0/24
+    home_interval: 10
+
+
+# HOMEKIT    
+homekit:
+  filter:
+    include_entities:
+      - switch.vacuum
+      - script.vacuum_kitchen
+      - switch.sonoffpow2
+      - script.watchsmarttv
+      - script.reading_lamp
+
+      
+# INPUT SELECT  
+input_select:
+  alarm:
+    name: Når starter du
+    options:
+      - "Aldri"
+      # - "07.30"
+      - "08:00"
+      # - "08.30"
+      - "09:00"
+      # - "09.30"
+      # - "10.00"
+      # - "10.30"
+      # - "11.00"
+    initial: "08:00"
+    icon: mdi:alarm
+
+  holiday_led_effect:
+    name: Holiday LED Effect
+    options:
+      - "Christmas"
+      - "Candy Cane"
+      - "Holly Jolly"
+      - "Valentine"
+      - "Lovey Day"
+      - "St Patty"
+      - "Easter"
+      - "USA"
+      - "Independence"
+      - "Go Blue"
+      - "Hail"
+      - "Touchdown"
+      - "Halloween"
+      - "Punkin"
+      - "Thanksgiving"
+      - "Turkey Day"
+      - "BPM"
+      - "Confetti"
+      - "Cyclon Rainbow"
+      - "Dots"
+      - "Fire"
+      - "Glitter"
+      - "Juggle"
+      - "Lightning"
+      - "Police All"
+      - "Police One"
+      - "Rainbow"
+      - "Rainbow with Glitter"
+      - "Ripple"
+      - "Sinelon"
+      - "Solid"
+      - "Twinkle"
+    initial: "Solid"
+
+    
+# VW CAR
+# volkswagen_carnet:
+  # username: !secret carnet_id
+  # password: !secret carnet_password
+  # update_interval: 
+    # minutes: 5 
+
+    
+# INPUT NUMBER    
+input_number:
+  alarm_clock_hour:
+    name: Time
+    icon: mdi:timer
+    initial: 6
+    min: 0
+    max: 23
+    step: 1
+    mode: box
+  alarm_clock_minute:
+    name: Minutt
+    icon: mdi:timer
+    initial: 30
+    min: 0
+    max: 55
+    step: 5
+    mode: box
+  alarm_clock_fade_in_minutes:
+    name: Myk oppvåkning
+    icon: mdi:gradient
+    initial: 15
+    min: 0
+    max: 30
+    step: 5
+    
+  animation_speed:
+    name: Animation Speed
+    initial: 150
+    min: 1
+    max: 150
+    step: 10
+
+    
+# INPUT DATE TIME
+input_datetime:
+  alarm:
+    name: Time input
+    has_date: false
+    has_time: true
+
+    
+# PLANT MONITORING
+plant:
+  Plante: 
+    sensors:
+      moisture: sensor.xiaomi_miflora_moisture
+      battery: sensor.xiaomi_miflora_battery_level
+      temperature: sensor.xiaomi_miflora_temperature
+      conductivity: sensor.xiaomi_miflora_soil_conductivity
+      brightness: sensor.xiaomi_miflora_illuminance
+    min_moisture: 16
+
+# BINARY SENSOR    
+binary_sensor:
+  # WASHING MACHINE SENSOR
+  - platform: template
+    sensors:
+      washing_machine:
+        friendly_name: "Vaskemaskin"
+        delay_off:
+          minutes: 2
+        value_template: >-
+          {{ states('sensor.pow1_power')|float > 1 }}
+      
+      pir_entry:
+        friendly_name: "PIR nede"
+        device_class: motion
+        value_template: "{{ is_state('light.entry', 'on') }}"
+  
+  # WORKDAY SENSOR
+  - platform: workday
+    country: "NO"
+    workdays: [mon, tue, wed, thu, fri]

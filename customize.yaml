@@ -1,0 +1,145 @@
+binary_sensor.WVWZZZAUZFW911702_parking_light:
+  friendly_name: Car Parking Lights
+binary_sensor.WVWZZZAUZFW911702_external_power:
+  friendly_name: Car External Power Connected
+binary_sensor.WVWZZZAUZFW911702_climatisation_without_external_power:
+  friendly_name: Car Climatisation Without External Power
+device_tracker.WVWZZZAUZFW911702:
+  friendly_name: Car Location
+lock.WVWZZZAUZFW911702_doors_locked:
+  friendly_name: Car Locked
+  assumed_state: false
+lock.WVWZZZAUZFW911702_trunk_locked:
+  friendly_name: Trunk Locked
+  assumed_state: false
+sensor.WVWZZZAUZFW911702_battery_level:
+  friendly_name: Car Battery Level
+sensor.WVWZZZAUZFW911702_fuel_level:
+  friendly_name: Car Fuel Level
+sensor.WVWZZZAUZFW911702_charge_max_ampere:
+  friendly_name: Charge max ampere
+sensor.WVWZZZAUZFW911702_charging_time_left:
+  friendly_name: Car Charging time left
+sensor.WVWZZZAUZFW911702_odometer:
+  friendly_name: Car Odometer
+sensor.WVWZZZAUZFW911702_electric_range:
+  friendly_name: Car Electric Range Left
+sensor.WVWZZZAUZFW911702_combustion_range:
+  friendly_name: Car Combustion Range Left
+sensor.WVWZZZAUZFW911702_combined_range:
+  friendly_name: Car Combined Range Left
+sensor.WVWZZZAUZFW911702_last_connected:
+  friendly_name: Car Last Connected
+sensor.WVWZZZAUZFW911702_service_inspection:
+  friendly_name: Car Next Service
+sensor.WVWZZZAUZFW911702_climatisation_target_temperature:
+  friendly_name: Car Climatisation Target Temperature
+switch.WVWZZZAUZFW911702_charging:
+  friendly_name: Car Charging
+  assumed_state: false
+switch.WVWZZZAUZFW911702_climatisation:
+  friendly_name: Car Climatisation
+  assumed_state: false
+switch.WVWZZZAUZFW911702_window_heater:
+  friendly_name: Car Window Heating
+  assumed_state: false
+light.tradfri_bulb_e27_cws_opal_600lm:
+  friendly_name: Sofabord
+  icon: mdi:ceiling-light
+light.tradfri_bulb_e27_ws_opal_980lm:
+  friendly_name: Spisebord
+  icon: mdi:ceiling-light
+light.tradfri_bulb_gu10_w_400lm:
+  friendly_name: Spot 1 soverom
+light.tradfri_bulb_gu10_w_400lm_2:
+  friendly_name: Spot 2 soverom
+light.tradfri_bulb_gu10_w_400lm_3:
+  friendly_name: Spot 3 soverom
+light.tradfri_bulb_gu10_ws_400lm_3:
+  friendly_name: Spot 1 stue
+light.tradfri_bulb_gu10_ws_400lm_4:
+  friendly_name: Spot 2 stue
+light.tradfri_bulb_gu10_ws_400lm_5:
+  friendly_name: Spot 3 stue
+script.relax:
+  icon: mdi:lightbulb-on-outline
+script.everyday:
+  icon: mdi:lightbulb-on
+switch.find_phone:
+  icon: mdi:cellphone-wireless
+input_boolean.vacuum_weekdays:
+  icon: mdi:calendar
+  templates:
+    icon_color: if (state === 'on') return '#63ff02'; return '#808080';
+script.watchsmarttv:
+  icon: mdi:google-chrome
+script.watchappletv:
+  icon: mdi:apple
+script.turnofftv:
+  icon: mdi:television-off
+script.playstation:
+  icon: mdi:playstation
+switch.wake_on_lan:
+  icon: mdi:laptop
+sensor.weather_wind_speed:
+  friendly_name: Wind speed
+  icon: mdi:weather-windy
+sensor.weather_wind_direction:
+  friendly_name: Wind direction
+  icon: mdi:compass
+sensor.weather_temperature:
+  friendly_name: Temperature
+light.livingroom_lights:
+  icon: mdi:ceiling-light
+light.bedroom_lights:
+  icon: mdi:track-light
+group.volkswagenlocation:
+  friendly_name: VW Location
+light.spotter_stue:
+  icon: mdi:track-light
+script.bedroom_everyday:
+  icon: mdi:lightbulb-on-outline
+script.bedroom_relax:
+  icon: mdi:lightbulb-on
+script.volume_down:
+  icon: mdi:volume-medium
+script.volume_up:
+  icon: mdi:volume-high
+script.volume_mute:
+  icon: mdi:volume-off
+script.play:
+  icon: mdi:play
+script.pause:
+  icon: mdi:pause
+switch.vacuum:
+  icon: mdi:robot-vacuum
+script.effect:
+  icon: mdi:surround-sound
+light.tradfri_light7e2165520440000965551:
+  friendly_name: Toras Bedroom
+light.tradfri_bulb_e27_ws_opal_980lm_2:
+  icon: mdi:ceiling-light
+switch.tradfri_control_outlet:
+  icon: mdi:radiator
+light.toras_lights:
+  icon: mdi:track-light
+script.play_chill:
+  icon: mdi:music
+script.play_main:
+  icon: mdi:music
+script.play_rock:
+  icon: mdi:music
+script.all_sonos:
+  icon: mdi:speaker
+script.kb_sonos:
+  icon: mdi:speaker
+script.leselys:
+  icon: mdi:desk-lamp
+script.vacuum_kitchen:
+  icon: mdi:silverware-fork-knife
+switch.vacuum_weekdays:
+  icon: mdi:calendar
+switch.sonoffpow2:
+  icon: mdi:radiator
+binary_sensor.washing_machine:
+  icon: mdi:washing-machine

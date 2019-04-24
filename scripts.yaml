@@ -1,0 +1,235 @@
+watchsmarttv:
+  alias: Watch Smart TV
+  sequence:
+  - data:
+      activity: Watch Smart TV
+      entity_id: remote.harmony_hub
+    service: remote.turn_on
+watchappletv:
+  alias: Watch Apple TV
+  sequence:
+  - data:
+      activity: Watch Apple TV
+      entity_id: remote.harmony_hub
+    service: remote.turn_on
+playstation:
+  alias: Play Playstation
+  sequence:
+  - data:
+      activity: Watch TV
+      entity_id: remote.harmony_hub
+    service: remote.turn_on
+turnofftv:
+  alias: Turn off TV
+  sequence:
+  - data:
+      entity_id: remote.harmony_hub
+    service: remote.turn_off
+volume_down:
+  alias: Volume down
+  sequence:
+  - data:
+      entity_id: remote.harmony_hub
+      device: 55477253
+      command: VolumeDown
+    service: remote.send_command
+volume_up:
+  alias: Volume up
+  sequence:
+  - data:
+      entity_id: remote.harmony_hub
+      device: 55477253
+      command: VolumeUp
+    service: remote.send_command
+volume_mute:
+  alias: Volume mute
+  sequence:
+  - data:
+      entity_id: remote.harmony_hub
+      device: 55477253
+      command: Mute
+    service: remote.send_command
+effect:
+  alias: Volume effect
+  sequence:
+  - data:
+      entity_id: remote.harmony_hub
+      device: 55477253
+      command: Effect
+    service: remote.send_command
+play:
+  alias: Play
+  sequence:
+  - data:
+      entity_id: remote.harmony_hub
+      device: 55477237
+      command: Play
+    service: remote.send_command
+pause:
+  alias: Pause
+  sequence:
+  - data:
+      entity_id: remote.harmony_hub
+      device: 55477237
+      command: Pause
+    service: remote.send_command
+bedroom_relax:
+  sequence:
+  - data:
+      brightness: '25'
+      color_temp: '450'
+      transition: '2'
+      entity_id: light.bedroom_lights
+    service: light.turn_on
+bedroom_everyday:
+  sequence:
+  - data:
+      brightness: '203'
+      color_temp: '367'
+      transition: '2'
+      entity_id: light.bedroom_lights
+    service: light.turn_on
+relax:
+  alias: Light Relax
+  sequence:
+  - data:
+      brightness: '35'
+      color_temp: '450'
+      entity_id: light.livingroom_lights
+      transition: '2'
+    service: light.turn_on
+everyday:
+  alias: Light Everyday
+  sequence:
+  - data:
+      brightness: '203'
+      color_temp: '367'
+      transition: '2'
+      entity_id: light.livingroom_lights
+    service: light.turn_on
+bedtime:
+  alias: Bedtime
+  sequence:
+  - alias: Turn of the tv
+    service: script.turnofftv
+  - alias: livingroom lights off
+    service: light.turn_off
+    data:
+      entity_id: light.livingroom_lights
+  - delay:
+      minutes: 1
+  - alias: Bedroom lights on
+    service: light.turn_on
+    data:
+      entity_id: light.bedroom_lights
+      brightness_pct: '80'
+all_sonos:
+  alias: sonos_join
+  sequence:
+  - data:
+      entity_id: media_player.soverom
+      master: media_player.kitchen
+    service: media_player.sonos_join
+  - data:
+      entity_id: media_player.bathroom
+      master: media_player.kitchen
+    service: media_player.sonos_join
+  - data:
+      entity_id: media_player.kitchen
+      volume_level: 0.25
+    service: media_player.volume_set
+  - data:
+      entity_id: media_player.bathroom
+      volume_level: 0.25
+    service: media_player.volume_set
+  - data:
+      entity_id: media_player.soverom
+      volume_level: 0.25
+    service: media_player.volume_set
+kb_sonos:
+  alias: Kitchen/Bathroom
+  sequence:
+  - data:
+      entity_id: media_player.bathroom
+      master: media_player.kitchen
+    service: media_player.sonos_join
+  - data:
+      entity_id: media_player.kitchen
+      volume_level: 0.2
+    service: media_player.volume_set
+  - data:
+      entity_id: media_player.bathroom
+      volume_level: 0.2
+    service: media_player.volume_set
+play_main:
+  alias: Main
+  sequence:
+  - data:
+      entity_id: media_player.kitchen
+      source: Main
+    service: media_player.select_source
+play_chill:
+  alias: Chill
+  sequence:
+  - data:
+      entity_id: media_player.kitchen
+      source: Chill & digg
+    service: media_player.select_source
+play_rock:
+  alias: Rock
+  sequence:
+  - data:
+      entity_id: media_player.kitchen
+      source: Simonkoredu
+    service: media_player.select_source
+leselys:
+  alias: leselys
+  sequence:
+  - data:
+      color_temp: '250'
+      brightness_pct: '100'
+      entity_id: light.reading_lamp
+    service: light.turn_on
+vacuum_kitchen:
+  alias: vacuum_kitchen
+  sequence:
+  - data:
+      entity_id: vacuum.vacuum
+      command: app_zoned_clean
+      params:
+      - - 23000
+        - 28500
+        - 26300
+        - 31000
+        - 2
+    service: vacuum.send_command
+empty_vacuum:
+  alias: empty_vacuum
+  sequence:
+  - data:
+      entity_id: vacuum.vacuum
+      command: app_goto_target
+      params:
+      - 24500
+      - 30200
+    service: vacuum.send_command
+vacuum_livingroom:
+  alias: vacuum_livingroom
+  sequence:
+  - data:
+      entity_id: vacuum.vacuum
+      command: app_zoned_clean
+      params:
+      - - 23000
+        - 25000
+        - 32000
+        - 31000
+        - 1
+    service: vacuum.send_command
+'1554736701356':
+  alias: Sonos shuffle
+  sequence:
+  - data:
+      entity_id: media_player.kitchen
+      shuffle: 'true'
+    service: media_player.shuffle_set

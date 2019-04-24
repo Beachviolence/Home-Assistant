@@ -1,0 +1,53 @@
+#### LIGHTS ####
+
+# LIVINGROOM SPOTS
+- platform: group
+  name: Spotter Stue
+  entities:
+    - light.livingroom_spot_1
+    - light.livingroom_spot_2
+    - light.livingroom_spot_3
+
+# LIVINGROOM LIGHTS
+- platform: group
+  name: Livingroom Lights
+  entities:
+    - light.reading_lamp
+    - light.kommode
+    - light.couch
+    - light.spotter_stue
+    - light.dining_room
+
+# BEDROOM LIGHTS
+- platform: group
+  name: Bedroom Lights
+  entities:
+    - light.bedroom_spot_1
+    - light.bedroom_spot_2
+    - light.bedroom_spot_3
+ 
+# TORAS LIGHTS
+- platform: group
+  name: Toras Lights
+  entities:
+    - light.bedroom_tora
+    
+# ALL LIGHTS
+- platform: group
+  name: All Lights
+  entities:
+    - light.livingroom_lights
+    - light.bedroom_lights
+    - light.toras_lights
+
+
+# OUTDOOR LIGHTS
+- platform: mqtt
+  name: "Holiday Lights"
+  command_topic: "bruh/mqttstrip/setpower"
+  state_topic: "bruh/mqttstrip/setpowerpub"
+  rgb_state_topic: "bruh/mqttstrip/setcolorpub"
+  rgb_command_topic: "bruh/mqttstrip/setcolor"
+  brightness_state_topic: "bruh/mqttstrip/setbrightnesspub"
+  brightness_command_topic: "bruh/mqttstrip/setbrightness"
+  optimistic: false

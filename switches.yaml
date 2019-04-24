@@ -1,0 +1,70 @@
+#### SWITCHES ####
+
+- platform: template
+  switches:
+  
+    # VACUUM TOGGLE
+    vacuum:
+      friendly_name: Vacuum
+      value_template: "{{ is_state('vacuum.Vacuum', 'cleaning') }}"
+      turn_on:
+        entity_id: vacuum.Vacuum
+        service: vacuum.start
+      turn_off:
+        service: vacuum.return_to_base
+        entity_id: vacuum.Vacuum
+    
+    # VACUUM WEEKDAYS
+    vacuum_weekdays:
+      friendly_name: Støvug ukedager
+      value_template: "{{ is_state('automation.vacuum_weekdays', 'on') }}"
+      turn_on:
+        service: automation.turn_on
+        entity_id: automation.vacuum_weekdays
+      turn_off:
+        service: automation.turn_off
+        entity_id: automation.vacuum_weekdays
+       
+# WAKE ON LAN        
+- platform: wake_on_lan
+  mac_address: "10:C3:7B:6E:02:03"
+  
+#### SONOFF BASIC 1 ####
+- platform: mqtt
+  name: "Sonoff1"
+  command_topic: "cmnd/sonoff1/power"
+  state_topic: "stat/sonoff1/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+  
+#### SONOFF BASIC 2 ####
+- platform: mqtt
+  name: "Sonoff2"
+  command_topic: "cmnd/sonoff2/power"
+  state_topic: "stat/sonoff2/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
+  
+#### SONOFF POW 1 ####
+- platform: mqtt
+  name: "SonoffPOW1"
+  command_topic: "sonoffPOW1/cmnd/power"
+  state_topic: "sonoffPOW1/stat/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true  
+
+#### SONOFF POW 2 ####
+- platform: mqtt
+  name: "SonoffPOW2"
+  command_topic: "sonoffPOW2/cmnd/power"
+  state_topic: "sonoffPOW2/stat/POWER"
+  qos: 1
+  payload_on: "ON"
+  payload_off: "OFF"
+  retain: true
