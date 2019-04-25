@@ -76,6 +76,8 @@ cloud:
         - switch.vacuum
         - script.vacuum_kitchen
         - switch.sonoffpow2
+        - switch.reading_lamp
+        - switch.sonoff2
 
 
 # XIAOMI-VACUUM
@@ -288,3 +290,13 @@ binary_sensor:
   - platform: workday
     country: "NO"
     workdays: [mon, tue, wed, thu, fri]
+
+# INFLUXDB
+influxdb:
+  host: 192.168.1.160
+  port: 8086
+  database: homeassistant
+  username: !secret influxdb_username
+  password: !secret influxdb_password
+  max_retries: 3
+  default_measurement: state

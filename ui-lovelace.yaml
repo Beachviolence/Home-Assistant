@@ -215,7 +215,7 @@ views:
                 action: toggle
               name: Dim
             - type: entity-button
-              entity: script.leselys
+              entity: switch.reading_lamp
               tap_action: 
                 action: toggle
               name: Leselampe

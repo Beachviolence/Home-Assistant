@@ -143,3 +143,5 @@ switch.sonoffpow2:
   icon: mdi:radiator
 binary_sensor.washing_machine:
   icon: mdi:washing-machine
+switch.reading_lamp:
+  icon: mdi:desk-lamp

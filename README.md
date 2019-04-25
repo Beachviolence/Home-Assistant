@@ -37,5 +37,5 @@ security.
 ## Map
 ![alt text](https://github.com/Beachviolence/Home-Assistant/blob/master/Docs/Kart.PNG?raw=true)
 
-## Appdemon
+## HAdashboard with Appdeamon
 ![alt text](https://github.com/Beachviolence/Home-Assistant/blob/master/Docs/iPad.PNG?raw=true)
