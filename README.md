@@ -1,10 +1,10 @@
 # Home-Assistant
-Home Assistant running Hass.io on Proxmox VE.
+Home Assistant with Hass.io on Proxmox VE.
 
 ## Hardware
 
 - IKEA Trådfri hub
-- SONOFF Basic with Tasmota
+- SONOFF Basic and POWs running Tasmota firmware
 - Various ESP8266 and ESP32's with LED strips, temp/hum sensors and PIR sensors
 - WYZE cam
 - Logitech Harmony Hub
@@ -18,8 +18,9 @@ Home Assistant running Hass.io on Proxmox VE.
     - OS: Proxmox VE
       - VE: HASS.IO
 - 2x iPad 2's hanging around the house with HAdashboard
+- Xiaomi plant sensor
 
-# Screenshot from frontend
+# Screenshots from frontend
 
 ## Frontend
 ![alt text](https://github.com/Beachviolence/Home-Assistant/blob/master/Docs/Hjem.PNG?raw=true)
