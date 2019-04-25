@@ -98,10 +98,10 @@ vacuum:
   
 # CONFIGURATOR
 panel_iframe:
-  configurator:
-    title: Configurator
-    icon: mdi:wrench
-    url: !secret configurator_url
+  # configurator:
+  #   title: Configurator
+  #   icon: mdi:wrench
+  #   url: !secret configurator_url
   # terminal:
     # title: Terminal
     # icon: mdi:console
