@@ -1,6 +1,9 @@
 # Home-Assistant
 Home Assistant with Hass.io on Proxmox VE.
 
+Using NabuCasa's cloud solution to resolve sertificates and encryption. No DuckDNS or port forwarding to increase
+security.
+
 ## Hardware
 
 - IKEA Trådfri hub

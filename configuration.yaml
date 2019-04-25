@@ -62,7 +62,8 @@ light: !include lights.yaml
   
 # TEXT TO SPEECH
 tts:
-  - platform: google
+  - platform: google_translate
+    service_name: google_say
     # base_url: !secret tts_url
     language: 'no'
 
@@ -114,18 +115,18 @@ panel_iframe:
     title: TasmoAdmin
     icon: mdi:light-switch
     url: !secret tasmoadmin_url
-  visualstudio:
-    title: VS Code
-    icon: mdi:visual-studio-code
-    url: !secret vscode_url
+  # visualstudio:
+  #   title: VS Code
+  #   icon: mdi:visual-studio-code
+  #   url: !secret vscode_url
   appdaemon:
     title: HAdashboard
     icon: mdi:tablet-ipad
     url: !secret hadashboard_url
-  motioneye:
-    title: MotionEye
-    icon: mdi:cctv
-    url: !secret motioneye_url
+  # motioneye:
+  #   title: MotionEye
+  #   icon: mdi:cctv
+  #   url: !secret motioneye_url
 
     
 # TRACKING
