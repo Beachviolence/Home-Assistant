@@ -352,28 +352,128 @@
       entity_id: media_player.kitchen
       message: '''Vaskemaskinen er ferdig, vennligst tøm den'
     service: tts.google_say
-  
 - id: '1235729'
-  alias: "Holiday Input Effect"
-  initial_state: True
-  hide_entity: False
+  alias: Holiday Input Effect
+  initial_state: true
+  hide_entity: false
   trigger:
-    - platform: state
-      entity_id: input_select.holiday_led_effect
+  - platform: state
+    entity_id: input_select.holiday_led_effect
   action:
-    - service: mqtt.publish
-      data_template:
-        topic: "bruh/mqttstrip/seteffect"
-        payload: '{{ trigger.to_state.state | string }}'
+  - service: mqtt.publish
+    data_template:
+      topic: bruh/mqttstrip/seteffect
+      payload: '{{ trigger.to_state.state | string }}'
+- alias: Animation Speed
+  initial_state: true
+  hide_entity: false
+  trigger:
+  - platform: state
+    entity_id: input_number.animation_speed
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: bruh/mqttstrip/setanimationspeed
+      payload: '{{ trigger.to_state.state | int }}'
+  id: 0fd14437ab554a1aa0e1c76247807749
 
-- alias: "Animation Speed"
-  initial_state: True
-  hide_entity: False
+
+- id: '1556301453307'
+  alias: Alarm automatic
   trigger:
-    - platform: state
-      entity_id: input_number.animation_speed
+  - entity_id: binary_sensor.pir_entry
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: alarm_control_panel.alarm
+      state: armed_away
+    - condition: state
+      entity_id: alarm_control_panel.alarm
+      state: armed_home
   action:
-    - service: mqtt.publish
-      data_template:
-        topic: "bruh/mqttstrip/setanimationspeed"
-        payload: '{{ trigger.to_state.state | int }}'
+  - data:
+      entity_id: media_player.kitchen, media_player.bathroom, media_player.soverom
+      volume_level: 0.7
+    service: media_player.volume_set
+  - data:
+      message: Alarmen er utløst
+      title: ALARM
+      data:
+        push:
+          category: "alarm_triggered"
+  - data:
+      entity_id: media_player.kitchen
+      source: Alarm
+    service: media_player.select_source
+  - data:
+      entity_id: input_select.holiday_led_effect
+      option: Police All
+    service: input_select.select_option
+
+- id: '81293879176'
+  alias: Alarm phone notify
+  initial_state: true
+  trigger:
+  - entity_id: binary_sensor.pir_entry
+    from: 'off'
+    platform: state
+    to: 'on'
+  action:
+    - data:
+        message: Alarmen er utløst
+        title: ALARM
+        data:
+          push:
+            category: "alarm_triggered"
+      service: notify.ios_simon_sin_iphone_7
+
+- id: '891237491'
+  alias: Alarm phone
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: SOUND_ALARM
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: alarm_control_panel.alarm
+      state: armed_away
+    - condition: state
+      entity_id: alarm_control_panel.alarm
+      state: armed_home
+  action:
+  - data:
+      entity_id: media_player.kitchen, media_player.bathroom, media_player.soverom
+      volume_level: 0.7
+    service: media_player.volume_set
+  - data:
+      message: Alarmen er utløst
+      title: ALARM
+      data:
+        push:
+          category: "alarm_triggered"
+    service: notify.ios_simon_sin_iphone_7
+  - data:
+      entity_id: media_player.kitchen
+      source: Alarm
+    service: media_player.select_source
+  - data:
+      entity_id: input_select.holiday_led_effect
+      option: Police All
+    service: input_select.select_option
+
+- id: '817937499029'
+  alias: Turn off alarm
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: STOP_ALARM
+  action:
+  - service: script.turn_off_alarm

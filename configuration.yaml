@@ -18,9 +18,26 @@ conversation: # Allows you to issue voice commands from the frontend in enabled 
 history: # Enables support for tracking state changes over time
 logbook: # View all events in a logbook
 map: # Enables a map showing the location of tracked devices
-ios:
 sun: # Track the sun
 system_health:
+
+
+# IOS ACTIONABLE NOTIFICATIONS
+ios:
+  push:
+    categories:
+      - name: Alarm
+        identifier: 'alarm'
+        actions:
+          - identifier: 'SOUND_ALARM'
+            title: 'Sound Alarm'
+            destructive: true
+      - name: Alarm triggered
+        identifier: 'alarm_triggered'
+        actions:
+          - identifier: 'STOP_ALARM'
+            title: 'Stop alarm'
+            destructive: false
 
 
 # ZONE
@@ -267,7 +284,7 @@ plant:
       temperature: sensor.xiaomi_miflora_temperature
       conductivity: sensor.xiaomi_miflora_soil_conductivity
       brightness: sensor.xiaomi_miflora_illuminance
-    min_moisture: 16
+    min_moisture: 20
 
 # BINARY SENSOR    
 binary_sensor:
@@ -300,3 +317,22 @@ influxdb:
   password: !secret influxdb_password
   max_retries: 3
   default_measurement: state
+
+
+# ALARM PANEL
+alarm_control_panel:
+  - platform: manual
+    name: Alarm
+    code: !secret alarm_code
+    trigger_time: 300
+    disarmed:
+      trigger_time: 0
+    armed_home:
+      delay_time: 0
+      pending_time: 0
+    armed_away:
+      delay_time: 60
+      pending_time: 30
+    triggered:
+      pending_time: 0
+      

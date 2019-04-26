@@ -173,6 +173,9 @@ views:
                 name: Stue
               - entity_id: media_player.soverom
                 name: Soverom
+                
+      - type: alarm-panel
+        entity: alarm_control_panel.alarm
       
 
         
@@ -283,72 +286,91 @@ views:
                 name: effect
       
       ## LIVINGROOM RADIATOR ##
-      - type: glance
-        #title: Strøm
-        entities:
-        - entity: switch.sonoffpow2
-          name: POW 2
-          icon: mdi:radiator
-          tap_action:
-            action: toggle
-        - entity: sensor.livingroom_temperature
-          name: Temperatur
-        - entity: sensor.pow2_today
-          name: Today
-          icon: mdi:power-plug
-        - entity: binary_sensor.washing_machine
-          
-      ## PLANT MONITORING ##
-      - type: plant-status
-        entity: plant.plante
+      # - type: glance
+        # #title: Strøm
+        # entities:
+        # - entity: switch.sonoffpow2
+          # name: POW 2
+          # icon: mdi:radiator
+          # tap_action:
+            # action: toggle
+        # - entity: sensor.livingroom_temperature
+          # name: Temperatur
+        # - entity: sensor.pow2_today
+          # name: Today
+          # icon: mdi:power-plug
+        # - entity: binary_sensor.washing_machine
         
-      ## SONOS MEDIA CONTROL ##
       - type: vertical-stack
         cards:
-        - type: custom:mini-media-player
-          entity: media_player.kitchen
-          icon: mdi:speaker-wireless
-          show_source: small
-          hide:
-            power: true
-          name: Stue
-          tts: 
-            platform: google
-            volume: 1
-          artwork: cover
-          info: short
-          max_volume: 70
-          sonos:
-            show_group_count: true
-            entities:
-              - entity_id: media_player.kitchen
-                name: Stue
-              - entity_id: media_player.bathroom
-                name: Bad
-              - entity_id: media_player.soverom
-                name: Soverom
-        # - type: custom:mini-media-player
-          # entity: media_player.bathroom
-          # icon: mdi:speaker-wireless
-          # show_source: small
-          # hide:
-            # power: true
-          # name: Bad
-          # tts: 
-            # platform: google
-            # volume: 1
-          # artwork: cover
-          # info: short
-          # max_volume: 70
-          # sonos:
-            # show_group_count: true
-            # entities:
-              # - entity_id: media_player.bathroom
-                # name: Bad
-              # - entity_id: media_player.kitchen
-                # name: Stue
-              # - entity_id: media_player.soverom
-                # name: Soverom
+        ## OUTDOOR LIGHTING ##
+        - type: glance
+          title: Utelys
+          entities:
+            - entity: switch.sonoffpow2
+              name: Stemningslys
+              icon: mdi:lightbulb-on
+              tap_action:
+                action: toggle
+            - entity: light.holiday_lights
+              name: LED
+              tap_action:
+                action: toggle
+            - entity: input_select.holiday_led_effect
+              name: Effect
+            - entity: input_number.animation_speed
+            
+        ## PLANT MONITORING ##
+        - type: plant-status
+          entity: plant.plante
+          
+        ## SONOS MEDIA CONTROL ##
+        - type: vertical-stack
+          cards:
+          - type: custom:mini-media-player
+            entity: media_player.kitchen
+            icon: mdi:speaker-wireless
+            show_source: small
+            hide:
+              power: true
+            name: Stue
+            tts: 
+              platform: google
+              volume: 1
+            artwork: cover
+            info: short
+            max_volume: 70
+            sonos:
+              show_group_count: true
+              entities:
+                - entity_id: media_player.kitchen
+                  name: Stue
+                - entity_id: media_player.bathroom
+                  name: Bad
+                - entity_id: media_player.soverom
+                  name: Soverom
+          # - type: custom:mini-media-player
+            # entity: media_player.bathroom
+            # icon: mdi:speaker-wireless
+            # show_source: small
+            # hide:
+              # power: true
+            # name: Bad
+            # tts: 
+              # platform: google
+              # volume: 1
+            # artwork: cover
+            # info: short
+            # max_volume: 70
+            # sonos:
+              # show_group_count: true
+              # entities:
+                # - entity_id: media_player.bathroom
+                  # name: Bad
+                # - entity_id: media_player.kitchen
+                  # name: Stue
+                # - entity_id: media_player.soverom
+                  # name: Soverom
 
                 
               
@@ -629,6 +651,33 @@ views:
   ####### TEST ############
   - title: TEST
     cards:
+      - type: glance
+        title: Utelys
+        entities:
+          - entity: switch.sonoffpow2
+            name: Stemningslys
+            icon: mdi:lightbulb-on
+            tap_action:
+              action: toggle
+          - entity: light.holiday_lights
+            name: LED
+            tap_action:
+              action: toggle
+          - entity: input_select.holiday_led_effect
+            name: Effect
+          - entity: input_number.animation_speed
+      - type: entities
+        title: Utelys
+        show_header_toggle: true
+        entities:
+          - entity: switch.sonoffpow2
+            name: Stemningslys
+            icon: mdi:lightbulb-on
+          - entity: light.holiday_lights
+            name: LED
+          - entity: input_select.holiday_led_effect
+            name: Effect
+          - entity: input_number.animation_speed
       - type: history-graph
         title: 'Temperaturer'
         hours_to_show: 24
@@ -653,11 +702,14 @@ views:
           name: Sonoff 2
         - entity: switch.wake_on_lan
           name: PC
+          
+      - type: alarm-panel
+        entity: alarm_control_panel.alarm
 
-      - type: iframe
-        url: https://weathermap.netatmo.com//?zoom=16&type=temp&param=Filter&stationid=70%3Aee%3A50%3A2e%3Aee%3A28&maplayer=Map&lang=undefined
-        aspect_ratio: 75%
+      # - type: iframe
+        # url: https://weathermap.netatmo.com//?zoom=16&type=temp&param=Filter&stationid=70%3Aee%3A50%3A2e%3Aee%3A28&maplayer=Map&lang=undefined
+        # aspect_ratio: 75%
 
-      - type: iframe
-        url: https://weathermap.netatmo.com/?zoom=16&type=temp&param=Filter&maplayer=Map&lat=60.38453522793275&lng=5.224642753601075&lang=undefined
-        aspect_ratio: 75%
+      # - type: iframe
+        # url: https://weathermap.netatmo.com/?zoom=16&type=temp&param=Filter&maplayer=Map&lat=60.38453522793275&lng=5.224642753601075&lang=undefined
+        # aspect_ratio: 75%
