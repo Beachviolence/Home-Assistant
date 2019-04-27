@@ -62,16 +62,16 @@ lovelace:
 sensor: !include sensors.yaml
 
 # SWITCHES
-switch: !include switches.yaml
+switch: !include_dir_merge_list switches
 
 # GROUPS
 group: !include groups.yaml
 
 # AUTOMATIONS
-automation: !include automations.yaml
+automation: !include_dir_merge_list automations
 
 # SCRIPTS
-script: !include scripts.yaml
+script: !include_dir_merge_named scripts
 
 # LIGHTS
 light: !include lights.yaml
@@ -309,14 +309,14 @@ binary_sensor:
     workdays: [mon, tue, wed, thu, fri]
 
 # INFLUXDB
-influxdb:
-  host: 192.168.1.160
-  port: 8086
-  database: homeassistant
-  username: !secret influxdb_username
-  password: !secret influxdb_password
-  max_retries: 3
-  default_measurement: state
+# influxdb:
+  # host: 192.168.1.160
+  # port: 8086
+  # database: homeassistant
+  # username: !secret influxdb_username
+  # password: !secret influxdb_password
+  # max_retries: 3
+  # default_measurement: state
 
 
 # ALARM PANEL

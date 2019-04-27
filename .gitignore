@@ -1,14 +1,47 @@
-*
-!*.yaml
-!.gitignore
-!*.md
-!www
-!www/*
-!Docs
-!Docs/*
+# Generic ignores
+*.log
+*.db
+*.db-shm
+*.db-wal
+*.pyc
+._*
+__pycache__
 
-ip_bans.yaml
-secrets.yaml
-known_devices.yaml
+# Directory (contents) ignores
+/.cloud
+/.storage
+/deps
+/tts
 
+# Specific file ignores
+/.config_entries.json
+/.homekit.state
+/.ios.conf
+/.spotify-token-cache
+/.tradfri_psk.conf
+/.uuid
+/core
+/html5_push_registrations.conf
+/ip_bans.yaml
+/known_devices.yaml
+/options.xml
+/OZW_Log.txt
+/pyozw.sqlite
+/secrets.yaml
+/zwcfg_*
+/zwscene.xml
+/harmony_harmony_hub.conf
 
+# ESPHome ignores
+/esphome/secrets.yaml
+/esphome/**/
+
+# Appdaemon ignores
+/appdaemon/secrets.yaml
+
+# Ignore files created by IDE's
+.vscode
+.theia
+
+# Specific keeps
+!.gitkeep
