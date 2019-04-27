@@ -1,0 +1,17 @@
+---
+#### Alarm ####
+
+## Turn off alarm ##
+turn_off_alarm:
+  alias: Turn off alarm
+  sequence:
+  - data:
+      entity_id: light.holiday_lights
+    service: light.turn_off
+  - data:
+      entity_id: media_player.kitchen
+    service: media_player.media_pause
+  - data:
+      entity_id: media_player.kitchen, media_player.bathroom, media_player.soverom
+      volume_level: 0.1
+    service: media_player.volume_set

@@ -1,0 +1,65 @@
+---
+########## SOVEROM FANE #############
+title: Soverom
+icon: mdi:hotel
+cards:
+
+  ## BEDROOM LIGHTS MOODS ##
+  - type: horizontal-stack
+    cards:
+      - type: entity-button
+        entity: light.bedroom_lights
+        name: Soverom
+        tap_action: 
+          action: toggle
+      - type: entity-button
+        entity: script.bedroom_relax
+        name: Relax
+        tap_action: 
+          action: toggle
+      - type: entity-button
+        entity: script.bedroom_everyday
+        name: Everyday
+        tap_action: 
+          action: toggle
+          
+  ## BEDROOM HEATER CONTROL ##
+  - type: glance
+    name: Varmeovn
+    entities: 
+      - entity: switch.tradfri_control_outlet
+        name: Bryter
+        icon: mdi:radiator
+        tap_action: 
+          action: toggle
+      - entity: sensor.bedroom_temperature
+        name: Temperatur
+      - entity: automation.bedroom_heater_on_before_bed
+        name: Varme kveld
+        icon: mdi:calendar-clock
+        tap_action: 
+          action: toggle
+          
+  ## SONOS MEDIA CONTROL ##
+  - type: custom:mini-media-player
+    entity: media_player.soverom
+    icon: mdi:speaker-wireless
+    show_source: small
+    hide:
+      power: true
+    name: Soverom
+    tts: 
+      platform: google
+      volume: 1
+    artwork: cover
+    info: short
+    max_volume: 70
+    sonos:
+      show_group_count: true
+      entities:
+        - entity_id: media_player.bathroom
+          name: Bad
+        - entity_id: media_player.kitchen
+          name: Stue
+        - entity_id: media_player.soverom
+          name: Soverom

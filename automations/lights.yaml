@@ -1,0 +1,73 @@
+---
+#### Lights ####
+
+## Dim lights at sundown ##
+- id: d7fd9c9686bb4e56a2fe5e8268cc1b58
+  alias: dim lights at sundown
+  trigger:
+  - event: sunset
+    offset: 00:30:00
+    platform: sun
+  condition:
+  - condition: state
+    entity_id: light.livingroom_lights
+    state: 'on'
+  action:
+  - data:
+      brightness: '45'
+      color_temp: '450'
+      entity_id: light.livingroom_lights
+      transition: '900'
+    service: light.turn_on
+    
+## Radiolights on/off when livingroom lights on ##
+- id: '1549906953663'
+  alias: Radiolights on
+  trigger:
+  - entity_id: light.livingroom_lights
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      entity_id: switch.sonoff2
+    service: switch.turn_on
+
+- id: '1549907033692'
+  alias: Radiolights off
+  trigger:
+  - entity_id: light.livingroom_lights
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      entity_id: switch.sonoff2
+    service: switch.turn_off
+  - data:
+      entity_id: switch.sonoff1
+    service: switch.turn_off
+    
+## Lights by the stairs stay on for 30 secs when lights are turned off and the sun is down ##
+- id: '1552136838463'
+  alias: Lys holder seg på
+  trigger:
+  - entity_id: light.kommode
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition:
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  action:
+  - delay: '2'
+  - data:
+      entity_id: light.spotter_stue
+    service: light.turn_on
+  - delay: '30'
+  - data:
+      entity_id: light.spotter_stue
+    service: light.turn_off

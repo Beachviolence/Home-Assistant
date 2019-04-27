@@ -1,0 +1,30 @@
+---
+#### Holiday lights ####
+
+## Start effect ##
+- id: '1235729'
+  alias: Holiday Input Effect
+  initial_state: true
+  hide_entity: false
+  trigger:
+  - platform: state
+    entity_id: input_select.holiday_led_effect
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: bruh/mqttstrip/seteffect
+      payload: '{{ trigger.to_state.state | string }}'
+      
+## Start animation speed ##
+- alias: Animation Speed
+  initial_state: true
+  hide_entity: false
+  trigger:
+  - platform: state
+    entity_id: input_number.animation_speed
+  action:
+  - service: mqtt.publish
+    data_template:
+      topic: bruh/mqttstrip/setanimationspeed
+      payload: '{{ trigger.to_state.state | int }}'
+  id: 0fd14437ab554a1aa0e1c76247807749

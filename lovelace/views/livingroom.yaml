@@ -1,0 +1,195 @@
+############## STUE FANE ###############
+title: Stue
+icon: mdi:sofa
+cards:
+
+  ## FIRST ROW ##
+  - type: vertical-stack
+    cards:
+    
+    ## TITLE ##
+    - type: markdown
+      content: >
+        ## LYS
+    
+    ## LIVINGROOM LIGHTS ##    
+    - type: horizontal-stack
+      cards:
+        - type: entity-button
+          entity: light.dining_room
+          tap_action: 
+            action: toggle
+          name: Spisebord
+        - type: entity-button
+          entity: light.couch
+          tap_action:
+            action: toggle
+          name: Sofa
+        - type: entity-button
+          entity: light.spotter_stue
+          tap_action: 
+            action: toggle
+          name: Spotter
+    
+    ## LIGHT MOOD SCRIPTS ##
+    - type: horizontal-stack
+      cards:
+        - type: entity-button
+          entity: script.relax
+          tap_action: 
+            action: toggle
+          name: Dim
+        - type: entity-button
+          entity: switch.reading_lamp
+          tap_action: 
+            action: toggle
+          name: Leselampe
+        - type: entity-button
+          entity: script.everyday
+          tap_action: 
+            action: toggle
+          name: Bright
+          
+    ## TV CONTROL ##
+    - type: vertical-stack
+      cards:
+        - type: glance
+          title: TV
+          show_header_toggle: true
+          entities:
+            - entity: script.watchsmarttv
+              name: Chromecast
+              tap_action: 
+                action: toggle
+            - entity: script.watchappletv
+              name: Apple TV
+              tap_action: 
+                action: toggle
+            - entity: script.playstation
+              name: Playstation
+              tap_action: 
+                action: toggle
+            - entity: script.turnofftv
+              name: Turn off
+              tap_action: 
+                action: toggle
+          show_state: false
+    
+    
+        - type: horizontal-stack
+          cards:
+          - type: entity-button
+            entity: script.volume_down
+            name: Down
+            tap_action: 
+              action: toggle
+          - type: entity-button
+            entity: script.volume_up
+            name: Up
+            tap_action: 
+              action: toggle
+          - type: entity-button
+            entity: script.volume_mute
+            name: Mute
+            tap_action: 
+              action: toggle
+          - type: entity-button
+            entity: script.play
+            tap_action: 
+              action: toggle
+          - type: entity-button
+            entity: script.pause
+            tap_action: 
+              action: toggle
+          - type: entity-button
+            entity: script.effect
+            tap_action: 
+              action: toggle
+            name: effect
+  
+  ## LIVINGROOM RADIATOR ##
+  # - type: glance
+    # #title: Strøm
+    # entities:
+    # - entity: switch.sonoffpow2
+      # name: POW 2
+      # icon: mdi:radiator
+      # tap_action:
+        # action: toggle
+    # - entity: sensor.livingroom_temperature
+      # name: Temperatur
+    # - entity: sensor.pow2_today
+      # name: Today
+      # icon: mdi:power-plug
+    # - entity: binary_sensor.washing_machine
+    
+  - type: vertical-stack
+    cards:
+    ## OUTDOOR LIGHTING ##
+    - type: glance
+      title: Utelys
+      entities:
+        - entity: switch.sonoffpow2
+          name: Stemningslys
+          icon: mdi:lightbulb-on
+          tap_action:
+            action: toggle
+        - entity: light.holiday_lights
+          name: LED
+          tap_action:
+            action: toggle
+        - entity: input_select.holiday_led_effect
+          name: Effect
+        - entity: input_number.animation_speed
+        
+    ## PLANT MONITORING ##
+    - type: plant-status
+      entity: plant.plante
+      
+    ## SONOS MEDIA CONTROL ##
+    - type: vertical-stack
+      cards:
+      - type: custom:mini-media-player
+        entity: media_player.kitchen
+        icon: mdi:speaker-wireless
+        show_source: small
+        hide:
+          power: true
+        name: Stue
+        tts: 
+          platform: google
+          volume: 1
+        artwork: cover
+        info: short
+        max_volume: 70
+        sonos:
+          show_group_count: true
+          entities:
+            - entity_id: media_player.kitchen
+              name: Stue
+            - entity_id: media_player.bathroom
+              name: Bad
+            - entity_id: media_player.soverom
+              name: Soverom
+      # - type: custom:mini-media-player
+        # entity: media_player.bathroom
+        # icon: mdi:speaker-wireless
+        # show_source: small
+        # hide:
+          # power: true
+        # name: Bad
+        # tts: 
+          # platform: google
+          # volume: 1
+        # artwork: cover
+        # info: short
+        # max_volume: 70
+        # sonos:
+          # show_group_count: true
+          # entities:
+            # - entity_id: media_player.bathroom
+              # name: Bad
+            # - entity_id: media_player.kitchen
+              # name: Stue
+            # - entity_id: media_player.soverom
+              # name: Soverom

@@ -1,0 +1,33 @@
+---
+#### TV ####
+
+## TV off when lights off ##
+- id: '1541457544610'
+  alias: tv off when lights off
+  trigger:
+  - entity_id: light.livingroom_lights
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition:
+  - after: '21:30'
+    before: 06:00
+    condition: time
+  action:
+  - data:
+      entity_id: remote.harmony_hub
+    service: remote.turn_off
+    
+## TV off at night ##
+- id: '1542311037089'
+  alias: Tv off at night
+  trigger:
+  - at: 03:00
+    platform: time
+  condition:
+  - condition: state
+    entity_id: light.livingroom_lights
+    state: 'off'
+  action:
+  - service: script.turnofftv
+  

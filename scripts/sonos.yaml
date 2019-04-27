@@ -1,0 +1,71 @@
+---
+#### Sonos control ####
+
+## Join all sonos ##
+all_sonos:
+  alias: sonos_join
+  sequence:
+  - data:
+      entity_id: media_player.soverom
+      master: media_player.kitchen
+    service: media_player.sonos_join
+  - data:
+      entity_id: media_player.bathroom
+      master: media_player.kitchen
+    service: media_player.sonos_join
+  - data:
+      entity_id: media_player.kitchen
+      volume_level: 0.25
+    service: media_player.volume_set
+  - data:
+      entity_id: media_player.bathroom
+      volume_level: 0.25
+    service: media_player.volume_set
+  - data:
+      entity_id: media_player.soverom
+      volume_level: 0.25
+    service: media_player.volume_set
+    
+## Join kitchen and bathroom Sonos ##
+kb_sonos:
+  alias: Kitchen/Bathroom
+  sequence:
+  - data:
+      entity_id: media_player.bathroom
+      master: media_player.kitchen
+    service: media_player.sonos_join
+  - data:
+      entity_id: media_player.kitchen
+      volume_level: 0.2
+    service: media_player.volume_set
+  - data:
+      entity_id: media_player.bathroom
+      volume_level: 0.2
+    service: media_player.volume_set
+    
+## Play playlist main from Spotify ##
+play_main:
+  alias: Main
+  sequence:
+  - data:
+      entity_id: media_player.kitchen
+      source: Main
+    service: media_player.select_source
+
+## Play playlist Chill & digg from Spotify ##
+play_chill:
+  alias: Chill
+  sequence:
+  - data:
+      entity_id: media_player.kitchen
+      source: Chill & digg
+    service: media_player.select_source
+    
+## Play playlist Rock from Spotify ##
+play_rock:
+  alias: Rock
+  sequence:
+  - data:
+      entity_id: media_player.kitchen
+      source: Simonkoredu
+    service: media_player.select_source

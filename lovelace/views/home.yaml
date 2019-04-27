@@ -1,0 +1,167 @@
+---
+title: Home
+icon: mdi:home
+cards:
+  
+  ## TRACKERS ##
+  - type: glance
+    entities:
+      - entity: device_tracker.simonsiniphone7_2
+        name: Simon
+        icon: mdi:human-handsup
+      - entity: device_tracker.julie_sin_iphone
+        name: Julie
+        icon: mdi:human-female
+      - entity: device_tracker.torasiniphone
+        name: Tora
+        icon: mdi:human-pregnant
+      - entity: device_tracker.wvwzzzauzfw911702
+        name: VW
+        icon: mdi:car
+        
+  ## LIGHTS ###      
+  - type: horizontal-stack
+    cards:
+      - type: light
+        entity: light.livingroom_lights
+        tap_action: 
+          action: toggle
+        hold_action: more-info
+        name: Stue
+      - type: light
+        entity: light.bedroom_lights
+        tap_action: 
+          action: toggle
+        name: Soverom
+  - type: entities
+    #title: Alarm
+    show_header_toggle: false
+    entities:
+      - input_select.alarm
+
+      
+ ## EGOLF KONTROLL ##
+  # - type: glance
+    # title: E-Golf
+    # show_header_toggle: false
+    # entities:
+      # - entity: switch.wvwzzzauzfw911702_charging
+        # tap_action: 
+          # action: toggle
+        # name: Lading
+      # - entity: switch.wvwzzzauzfw911702_climatisation
+        # tap_action: 
+          # action: toggle
+        # name: Klima
+      # - entity: switch.wvwzzzauzfw911702_window_heater
+        # tap_action: 
+          # action: toggle
+        # name: Vindu
+        # icon: mdi:snowflake
+      # - entity: sensor.wvwzzzauzfw911702_battery_level
+        # name: Batteri
+        
+  ## VACUUM ###      
+  - type: glance
+    title: "Støvsuger"
+    show_header_toggle: false
+    show_state: false
+    entities:
+    - entity: switch.vacuum
+      name: Støvsug
+      icon: mdi:robot-vacuum
+      tap_action: 
+          action: toggle
+    - entity: switch.vacuum_weekdays
+      name: Daglig
+      tap_action: 
+          action: toggle
+    - entity: script.vacuum_kitchen
+      name: Kjøkken
+      icon: mdi:silverware-fork-knife
+      tap_action:
+        action: toggle
+    - entity: script.empty_vacuum
+      name: Tøm
+      icon: mdi:delete
+      tap_action:
+        action: toggle
+        
+  
+  ## WEATHER SENSORS ##
+  - type: glance
+    title: "Vær"
+    show_header_toggle: true
+    entities:
+      - sensor.weather_temperature
+      - sensor.weather_wind_speed
+      - sensor.weather_wind_direction
+      
+  ## INDOOR CLIMATE SENSORS ##
+  - type: glance
+    #title: "Klima"
+    entities:
+    - entity: sensor.livingroom_temperature
+      name: Temp Stue
+    - entity: sensor.livingroom_humidity
+      name: Fuktighet Stue
+      icon: mdi:water-percent
+    - entity: sensor.bedroom_temperature
+      name: Temp Sove
+    - entity: sensor.bedroom_humidity
+      name: Fuktighet Sove
+      icon: mdi:water-percent
+  
+  ## SONOS MEDIA CONTROL ##
+  - type: vertical-stack
+    cards:
+    - type: custom:mini-media-player
+      entity: media_player.kitchen
+      icon: mdi:speaker-wireless
+      show_source: small
+      hide:
+        power: true
+        shuffle: false
+      name: Stue
+      tts: 
+        platform: google
+        volume: 1
+      artwork: cover
+      info: short
+      max_volume: 70
+      sonos:
+        show_group_count: true
+        entities:
+          - entity_id: media_player.kitchen
+            name: Stue
+          - entity_id: media_player.bathroom
+            name: Bad
+          - entity_id: media_player.soverom
+            name: Soverom
+            
+    - type: custom:mini-media-player
+      entity: media_player.bathroom
+      icon: mdi:speaker-wireless
+      show_source: small
+      hide:
+        power: true
+        shuffle: false
+      name: Bad
+      tts: 
+        platform: google
+        volume: 1
+      artwork: cover
+      info: short
+      max_volume: 70
+      sonos:
+        show_group_count: true
+        entities:
+          - entity_id: media_player.bathroom
+            name: Bad
+          - entity_id: media_player.kitchen
+            name: Stue
+          - entity_id: media_player.soverom
+            name: Soverom
+            
+  - type: alarm-panel
+    entity: alarm_control_panel.alarm

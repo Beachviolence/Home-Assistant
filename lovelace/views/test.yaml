@@ -1,0 +1,58 @@
+---
+####### TEST ############
+title: TEST
+cards:
+  - type: glance
+    title: Utelys
+    entities:
+      - entity: switch.sonoffpow2
+        name: Stemningslys
+        icon: mdi:lightbulb-on
+        tap_action:
+          action: toggle
+      - entity: light.holiday_lights
+        name: LED
+        tap_action:
+          action: toggle
+      - entity: input_select.holiday_led_effect
+        name: Effect
+      - entity: input_number.animation_speed
+  - type: entities
+    title: Utelys
+    show_header_toggle: true
+    entities:
+      - entity: switch.sonoffpow2
+        name: Stemningslys
+        icon: mdi:lightbulb-on
+      - entity: light.holiday_lights
+        name: LED
+      - entity: input_select.holiday_led_effect
+        name: Effect
+      - entity: input_number.animation_speed
+  - type: history-graph
+    title: 'Temperaturer'
+    hours_to_show: 24
+    entities:
+      - entity: sensor.bedroom_temperature
+        name: Soverom
+      - entity: sensor.livingroom_temperature
+        name: Stue
+      - entity: sensor.weather_temperature
+        name: Ute
+  - type: sensor
+    graph: line
+    entity: sensor.weather_temperature
+    name: Temperatur
+  
+  - type: glance
+    title: Brytere
+    entities:
+    - entity: switch.sonoff1
+      name: Sonoff 1
+    - entity: switch.sonoff2
+      name: Sonoff 2
+    - entity: switch.wake_on_lan
+      name: PC
+      
+  - type: alarm-panel
+    entity: alarm_control_panel.alarm

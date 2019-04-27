@@ -1,0 +1,111 @@
+---
+#### Alarm system ####
+
+## Automatic alarm ##
+- id: '1556301453307'
+  alias: Alarm automatic
+  trigger:
+  - entity_id: binary_sensor.pir_entry
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: alarm_control_panel.alarm
+      state: armed_away
+    - condition: state
+      entity_id: alarm_control_panel.alarm
+      state: armed_home
+  action:
+  - data:
+      entity_id: media_player.kitchen, media_player.bathroom, media_player.soverom
+      volume_level: 0.7
+    service: media_player.volume_set
+  - data:
+      message: Alarmen er utløst
+      title: ALARM
+      data:
+        push:
+          category: alarm_triggered
+    service: notify.ios_simon_sin_iphone_7
+  - data:
+      entity_id: media_player.kitchen
+      source: Alarm
+    service: media_player.select_source
+  - data:
+      entity_id: input_select.holiday_led_effect
+      option: Police All
+    service: input_select.select_option
+    
+## Phone alarm ##
+- id: '81293879176'
+  alias: Alarm phone notify
+  trigger:
+  - entity_id: binary_sensor.pir_entry
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: alarm_control_panel.alarm
+    state: alarmed_home
+  action:
+  - data:
+      data:
+        push:
+          category: alarm_triggered
+      message: Alarmen er utløst
+      title: ALARM
+    service: notify.ios_simon_sin_iphone_7
+  initial_state: true
+  
+## iPhone alarm trigger ##
+- id: '891237491'
+  alias: Alarm phone
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: SOUND_ALARM
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: alarm_control_panel.alarm
+      state: armed_away
+    - condition: state
+      entity_id: alarm_control_panel.alarm
+      state: armed_home
+  action:
+  - data:
+      entity_id: media_player.kitchen, media_player.bathroom, media_player.soverom
+      volume_level: 0.7
+    service: media_player.volume_set
+  - data:
+      message: Alarmen er utløst
+      title: ALARM
+      data:
+        push:
+          category: alarm_triggered
+    service: notify.ios_simon_sin_iphone_7
+  - data:
+      entity_id: media_player.kitchen
+      source: Alarm
+    service: media_player.select_source
+  - data:
+      entity_id: input_select.holiday_led_effect
+      option: Police All
+    service: input_select.select_option
+    
+## Turn off alarm ##
+- id: '817937499029'
+  alias: Turn off alarm
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: STOP_ALARM
+  action:
+  - service: script.turn_off_alarm

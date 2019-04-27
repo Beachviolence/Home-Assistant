@@ -1,0 +1,47 @@
+---
+#### Light scenes ####
+
+### LIVINGROOM ###
+## Relax ##
+relax:
+  alias: Light Relax
+  sequence:
+  - data:
+      brightness: '35'
+      color_temp: '450'
+      entity_id: light.livingroom_lights
+      transition: '2'
+    service: light.turn_on
+    
+## Everyday ##
+everyday:
+  alias: Light Everyday
+  sequence:
+  - data:
+      brightness: '203'
+      color_temp: '367'
+      transition: '2'
+      entity_id: light.livingroom_lights
+    service: light.turn_on
+
+
+### BEDROOM ###    
+## Relax ##
+bedroom_relax:
+  sequence:
+  - data:
+      brightness: '25'
+      color_temp: '450'
+      transition: '2'
+      entity_id: light.bedroom_lights
+    service: light.turn_on
+    
+## Everyday ##
+bedroom_everyday:
+  sequence:
+  - data:
+      brightness: '203'
+      color_temp: '367'
+      transition: '2'
+      entity_id: light.bedroom_lights
+    service: light.turn_on

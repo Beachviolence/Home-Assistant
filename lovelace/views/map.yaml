@@ -1,0 +1,140 @@
+---
+########## FLOOR PLAN ############   
+title: Floor-plan
+icon: mdi:map
+cards:
+  - type: picture-elements
+    image: /local/second-floor.png
+    elements:
+    
+      ## FIRST FLOOR ##
+      - type: state-icon
+        tap_action:
+          action: toggle
+        entity: light.couch
+        style:
+          top: 34%
+          left: 31%
+      - type: state-icon
+        tap_action:
+          action: toggle
+        entity: light.spotter_stue
+        style:
+          top: 50%
+          left: 85%
+      - type: state-icon
+        tap_action:
+          action: toggle
+        entity: light.dining_room
+        style:
+          top: 80%
+          left: 49%
+      - type: state-icon
+        tap_action:
+          action: toggle
+        entity: switch.sonoff1
+        style:
+          top: 80%
+          left: 38%
+      - type: state-icon
+        tap_action:
+          action: toggle
+        entity: switch.sonoff2
+        style:
+          top: 70%
+          left: 38%
+      - type: state-icon
+        tap_action:
+          action: toggle
+        entity: switch.vacuum
+        style:
+          top: 8%
+          left: 72%
+      - type: state-icon
+        tap_action:
+          action: toggle
+        entity: light.kommode
+        style:
+          top: 8%
+          left: 67%
+      - type: state-icon
+        tap_action:
+          action: toggle
+        entity: switch.wake_on_lan
+        style:
+          top: 90%
+          left: 28%
+      - type: state-label
+        tap_action:
+          action: toggle
+        entity: sensor.weather_temperature
+        style:
+          top: 15%
+          left: 5%
+      - type: state-label
+        tap_action:
+          action: toggle
+        entity: sensor.weather_wind_speed
+        style:
+          top: 22%
+          left: 6%
+      - type: state-icon
+        tap_action:
+          action: toggle
+        entity: switch.sonoffpow2
+        style:
+          top: 20%
+          left: 50%
+          icon: mdi:radiator
+          
+  ## SECOND FLOOR ##
+  - type: picture-elements
+    image: /local/third-floor.png
+    elements:
+      - type: state-icon
+        tap_action:
+          action: toggle
+        entity: light.bedroom_lights
+        style:
+          top: 32%
+          left: 16%
+      - type: state-icon
+        tap_action:
+          action: toggle
+        entity: switch.tradfri_control_outlet
+        style:
+          top: 45%
+          left: 5%
+      - type: state-icon
+        tap_action:
+          action: toggle
+        entity: light.toras_lights
+        style:
+          top: 68%
+          left: 16%
+      - type: state-icon
+        tap_action:
+          action: toggle
+        entity: light.ved_bod
+        style:
+          top: 42%
+          left: 47%
+      - type: state-icon
+        tap_action:
+          action: toggle
+        entity: light.utfor_vaskerom
+        style:
+          top: 42%
+          left: 85%
+      - type: state-icon
+        tap_action:
+          action: toggle
+        entity: light.trapp_oppe
+        style:
+          top: 20%
+          left: 68%
+      - type: state-icon
+        entity: binary_sensor.washing_machine
+        style:
+          top: 81%
+          left: 80%

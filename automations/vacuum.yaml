@@ -1,0 +1,36 @@
+---
+#### Vacuum automations ####
+
+## Vacuum weekdays ##
+- id: '1540576707188'
+  alias: Vacuum weekdays
+  trigger:
+  - at: '11:00'
+    platform: time
+  condition:
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  - condition: template
+    value_template: '{{ states("device_tracker.simonsiniphone7_2") != "home" }}'
+  action:
+  - data:
+      entity_id: switch.vacuum
+    service: switch.turn_on
+    
+## Empty vacuum on thursdays ##
+- id: vacuum_empty_routine
+  alias: Tøm hver torsdag
+  trigger:
+  - at: '12:00:00'
+    platform: time
+  condition:
+  - condition: time
+    weekday:
+    - thu
+  - condition: state
+    entity_id: switch.vacuum_weekdays
+    state: 'on'
+  action:
+  - entity_id: script.empty_vacuum
+    service: script.turn_on

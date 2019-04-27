@@ -1,0 +1,4 @@
+---
+#### WAKE ON LAN ####     
+- platform: wake_on_lan
+  mac_address: "10:C3:7B:6E:02:03"

@@ -1,0 +1,59 @@
+---
+#### Climate ####
+
+## Bedroom heater on before bed ##
+- id: '1543413624056'
+  alias: Bedroom heater on before bed
+  trigger:
+  - at: '20:30'
+    platform: time
+  condition:
+  - above: '-1000'
+    below: '15'
+    condition: numeric_state
+    entity_id: sensor.weather_temperature
+  - condition: state
+    entity_id: device_tracker.simonsiniphone7_2
+    state: home
+  action:
+  - data:
+      entity_id: switch.tradfri_control_outlet
+    service: switch.turn_on
+    
+## Bedroom heater off in the morning ##
+- id: '1543414096425'
+  alias: Heater off in the morning
+  trigger:
+  - at: 07:00
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: switch.tradfri_control_outlet
+    service: switch.turn_off
+    
+## Heater in the livingroom on/off when lights are on ##
+- id: '1553555466254'
+  alias: Heater off
+  trigger:
+  - entity_id: light.livingroom_lights
+    from: 'on'
+    platform: state
+    to: 'off'
+  condition: []
+  action:
+  - data:
+      entity_id: switch.sonoffpow2
+    service: switch.turn_off
+- id: '1553555834085'
+  alias: Heater on
+  trigger:
+  - entity_id: light.livingroom_lights
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      entity_id: switch.sonoffpow2
+    service: switch.turn_on

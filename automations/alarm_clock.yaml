@@ -1,0 +1,96 @@
+---
+#### Alarm clocks ####
+
+## Alarm 0800 ##
+- id: '1552140807307'
+  alias: Alarm 0800
+  trigger:
+  - at: 06:50:00
+    platform: time
+  condition:
+  - condition: state
+    entity_id: input_select.alarm
+    state: 08:00
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  action:
+  - data:
+      entity_id: media_player.soverom
+      volume_level: '0.10'
+    service: media_player.volume_set
+  - data:
+      entity_id: media_player.bathroom
+      volume_level: '0.13'
+    service: media_player.volume_set
+  - data:
+      entity_id: media_player.kitchen
+      volume_level: '0.13'
+    service: media_player.volume_set
+  - data:
+      entity_id: media_player.soverom
+      source: NRK P3
+    service: media_player.select_source
+  - data:
+      entity_id: media_player.bathroom
+      source: NRK P3
+    service: media_player.select_source
+  - data:
+      brightness_pct: '80'
+      entity_id: light.bedroom_lights
+      transition: '300'
+    service: light.turn_on
+  - delay: '2400'
+  - data:
+      entity_id: media_player.soverom
+    service: media_player.media_pause
+  - data:
+      entity_id: media_player.bathroom
+    service: media_player.media_pause
+    
+## Alarm 0900 ##
+- id: '1552140807307'
+  alias: Alarm 0900
+  trigger:
+  - at: 07:50:00
+    platform: time
+  condition:
+  - condition: state
+    entity_id: input_select.alarm
+    state: 09:00
+  - condition: state
+    entity_id: binary_sensor.workday_sensor
+    state: 'on'
+  action:
+  - data:
+      entity_id: media_player.soverom
+      volume_level: '0.10'
+    service: media_player.volume_set
+  - data:
+      entity_id: media_player.bathroom
+      volume_level: '0.13'
+    service: media_player.volume_set
+  - data:
+      entity_id: media_player.kitchen
+      volume_level: '0.13'
+    service: media_player.volume_set
+  - data:
+      entity_id: media_player.soverom
+      source: NRK P3
+    service: media_player.select_source
+  - data:
+      entity_id: media_player.bathroom
+      source: NRK P3
+    service: media_player.select_source
+  - data:
+      entity_id: light.bedroom_lights
+      brightness_pct: '80'
+      transition: '300'
+    service: light.turn_on
+  - delay: 2400
+  - data:
+      entity_id: media_player.soverom
+    service: media_player.media_pause
+  - data:
+      entity_id: media_player.bathroom
+    service: media_player.media_pause

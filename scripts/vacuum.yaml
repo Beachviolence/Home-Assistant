@@ -1,0 +1,44 @@
+---
+#### Vacuum ####
+
+## Vacuum kitchen ##
+vacuum_kitchen:
+  alias: vacuum_kitchen
+  sequence:
+  - data:
+      entity_id: vacuum.vacuum
+      command: app_zoned_clean
+      params:
+      - - 23000
+        - 28500
+        - 26300
+        - 31000
+        - 2
+    service: vacuum.send_command
+
+## Empty vacuum ##
+empty_vacuum:
+  alias: empty_vacuum
+  sequence:
+  - data:
+      entity_id: vacuum.vacuum
+      command: app_goto_target
+      params:
+      - 24500
+      - 30200
+    service: vacuum.send_command
+    
+## Vacuum livingroom ##
+vacuum_livingroom:
+  alias: vacuum_livingroom
+  sequence:
+  - data:
+      entity_id: vacuum.vacuum
+      command: app_zoned_clean
+      params:
+      - - 23000
+        - 25000
+        - 32000
+        - 31000
+        - 1
+    service: vacuum.send_command
