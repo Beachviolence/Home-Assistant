@@ -1,0 +1,10 @@
+---
+#### Plant ####
+Plante: 
+  sensors:
+    moisture: sensor.xiaomi_miflora_moisture
+    battery: sensor.xiaomi_miflora_battery_level
+    temperature: sensor.xiaomi_miflora_temperature
+    conductivity: sensor.xiaomi_miflora_soil_conductivity
+    brightness: sensor.xiaomi_miflora_illuminance
+  min_moisture: 20

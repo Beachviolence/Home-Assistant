@@ -1,0 +1,6 @@
+---
+#### Text to speech ####
+- platform: google_translate
+  service_name: google_say
+  # base_url: !secret tts_url
+  language: 'no'

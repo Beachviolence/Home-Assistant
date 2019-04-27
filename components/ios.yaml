@@ -1,0 +1,16 @@
+---
+#### IOS ####
+push:
+  categories:
+    - name: Alarm
+      identifier: 'alarm'
+      actions:
+        - identifier: 'SOUND_ALARM'
+          title: 'Sound Alarm'
+          destructive: true
+    - name: Alarm triggered
+      identifier: 'alarm_triggered'
+      actions:
+        - identifier: 'STOP_ALARM'
+          title: 'Stop alarm'
+          destructive: false

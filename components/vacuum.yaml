@@ -1,0 +1,6 @@
+---
+#### Vacuum ####
+- platform: xiaomi_miio
+  host: 192.168.1.144
+  token: !secret vacuum_token
+  name: Vacuum

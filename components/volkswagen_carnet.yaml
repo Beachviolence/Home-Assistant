@@ -1,0 +1,7 @@
+---
+#### VW carnet ####
+
+# username: !secret carnet_id
+# password: !secret carnet_password
+# update_interval: 
+  # minutes: 5 

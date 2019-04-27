@@ -1,0 +1,20 @@
+---
+#### iFrame ####
+
+## ESP Home ##
+esphome:
+  title: ESPHome
+  icon: mdi:chip
+  url: !secret esphome_url
+  
+## TasmoAdmin ##
+tasmoadmin:
+  title: TasmoAdmin
+  icon: mdi:light-switch
+  url: !secret tasmoadmin_url
+  
+## HAdashboard ##
+appdaemon:
+  title: HAdashboard
+  icon: mdi:tablet-ipad
+  url: !secret hadashboard_url

@@ -1,0 +1,5 @@
+---
+#### Device tracker ####
+- platform: nmap_tracker
+  hosts: 192.168.1.0/24
+  home_interval: 10

@@ -1,5 +1,9 @@
 #### CONFIGURATION ####
 
+# Welcome to my configuration file. Most of my config is placed in folders
+# and is organized by components. A list of all components used is found 
+# under. the basic config of Home Assistant.
+
 homeassistant:
   name: Home
   latitude: !secret latitude
@@ -10,7 +14,6 @@ homeassistant:
   customize: !include customize.yaml
 
 
-frontend: !include frontend.yaml
 config: # Enables configuration UI
 updater: # Optional, allows Home Assistant developers to focus on popular components.
 discovery: # Discover some devices automatically
@@ -22,317 +25,70 @@ sun: # Track the sun
 system_health:
 
 
+### COMPONENTS USED ###
+
+# THEMES
+frontend: 
+  themes: !include_dir_merge_named themes
+
 # IOS ACTIONABLE NOTIFICATIONS
-ios:
-  push:
-    categories:
-      - name: Alarm
-        identifier: 'alarm'
-        actions:
-          - identifier: 'SOUND_ALARM'
-            title: 'Sound Alarm'
-            destructive: true
-      - name: Alarm triggered
-        identifier: 'alarm_triggered'
-        actions:
-          - identifier: 'STOP_ALARM'
-            title: 'Stop alarm'
-            destructive: false
+ios: !include components/ios.yaml
 
-
-# ZONE
-zone:
-  - name: Haakonsvern
-    latitude: !secret hos_latitude
-    longitude: !secret hos_longitude
-    radius: 500
-    icon: mdi:castle
-  - name: SKSK
-    icon: mdi:school
-    latitude: !secret sksk_latitude
-    longitude: !secret sksk_longitude
-    radius: 300
-
+# ZONES
+zone: !include components/zones.yaml
 
 # LOVELACE
 lovelace:
   mode: yaml
-  
-# SENSORS
-sensor: !include sensors.yaml
 
-# SWITCHES
-switch: !include_dir_merge_list switches
-
-# GROUPS
-group: !include groups.yaml
-
-# AUTOMATIONS
-automation: !include_dir_merge_list automations
-
-# SCRIPTS
-script: !include_dir_merge_named scripts
-
-# LIGHTS
-light: !include lights.yaml
-  
-  
 # TEXT TO SPEECH
-tts:
-  - platform: google_translate
-    service_name: google_say
-    # base_url: !secret tts_url
-    language: 'no'
-
-    
+tts: !include components/tts.yaml
+   
 # CLOUD
-cloud:
-  alexa:
-    filter:
-      include_entities:
-        - switch.vacuum
-        - script.vacuum_kitchen
-        - switch.sonoffpow2
-        - switch.reading_lamp
-        - switch.sonoff2
-
+cloud: !include components/cloud.yaml
 
 # XIAOMI-VACUUM
-vacuum:
-  - platform: xiaomi_miio
-    host: 192.168.1.144
-    token: !secret vacuum_token
-    name: Vacuum
+vacuum: !include components/vacuum.yaml
+ 
+# Iframe panel
+panel_iframe: !include components/panel_iframe.yaml
 
-    
-# DUCKDNS/SSL
-# http:
-  # base_url: !secret http_url
-  # ssl_certificate: /ssl/fullchain.pem
-  # ssl_key: /ssl/privkey.pem
-  # api_password: !secret http_password
-  # trusted_networks:
-    # - 192.168.1.1
-  # login_attempts_threshold: 5
-
-  
-# CONFIGURATOR
-panel_iframe:
-  # configurator:
-  #   title: Configurator
-  #   icon: mdi:wrench
-  #   url: !secret configurator_url
-  # terminal:
-    # title: Terminal
-    # icon: mdi:console
-    # url: !secret ssh_address
-  esphome:
-    title: ESPHome
-    icon: mdi:chip
-    url: !secret esphome_url
-  tasmoadmin:
-    title: TasmoAdmin
-    icon: mdi:light-switch
-    url: !secret tasmoadmin_url
-  # visualstudio:
-  #   title: VS Code
-  #   icon: mdi:visual-studio-code
-  #   url: !secret vscode_url
-  appdaemon:
-    title: HAdashboard
-    icon: mdi:tablet-ipad
-    url: !secret hadashboard_url
-  # motioneye:
-  #   title: MotionEye
-  #   icon: mdi:cctv
-  #   url: !secret motioneye_url
-
-    
 # TRACKING
-device_tracker:
-  # - platform: icloud
-    # username: !secret ios_username
-    # password: !secret ios_password
-    # account_name: Simon
-  - platform: nmap_tracker
-    hosts: 192.168.1.0/24
-    home_interval: 10
-
+device_tracker: !include components/device_tracker.yaml
 
 # HOMEKIT    
-homekit:
-  filter:
-    include_entities:
-      - switch.vacuum
-      - script.vacuum_kitchen
-      - switch.sonoffpow2
-      - script.watchsmarttv
-      - script.reading_lamp
-
-      
-# INPUT SELECT  
-input_select:
-  alarm:
-    name: Når starter du
-    options:
-      - "Aldri"
-      # - "07.30"
-      - "08:00"
-      # - "08.30"
-      - "09:00"
-      # - "09.30"
-      # - "10.00"
-      # - "10.30"
-      # - "11.00"
-    initial: "08:00"
-    icon: mdi:alarm
-
-  holiday_led_effect:
-    name: Holiday LED Effect
-    options:
-      - "Christmas"
-      - "Candy Cane"
-      - "Holly Jolly"
-      - "Valentine"
-      - "Lovey Day"
-      - "St Patty"
-      - "Easter"
-      - "USA"
-      - "Independence"
-      - "Go Blue"
-      - "Hail"
-      - "Touchdown"
-      - "Halloween"
-      - "Punkin"
-      - "Thanksgiving"
-      - "Turkey Day"
-      - "BPM"
-      - "Confetti"
-      - "Cyclon Rainbow"
-      - "Dots"
-      - "Fire"
-      - "Glitter"
-      - "Juggle"
-      - "Lightning"
-      - "Police All"
-      - "Police One"
-      - "Rainbow"
-      - "Rainbow with Glitter"
-      - "Ripple"
-      - "Sinelon"
-      - "Solid"
-      - "Twinkle"
-    initial: "Solid"
-
-    
+homekit: !include components/homekit.yaml
+   
 # VW CAR
-# volkswagen_carnet:
-  # username: !secret carnet_id
-  # password: !secret carnet_password
-  # update_interval: 
-    # minutes: 5 
-
-    
-# INPUT NUMBER    
-input_number:
-  alarm_clock_hour:
-    name: Time
-    icon: mdi:timer
-    initial: 6
-    min: 0
-    max: 23
-    step: 1
-    mode: box
-  alarm_clock_minute:
-    name: Minutt
-    icon: mdi:timer
-    initial: 30
-    min: 0
-    max: 55
-    step: 5
-    mode: box
-  alarm_clock_fade_in_minutes:
-    name: Myk oppvåkning
-    icon: mdi:gradient
-    initial: 15
-    min: 0
-    max: 30
-    step: 5
-    
-  animation_speed:
-    name: Animation Speed
-    initial: 150
-    min: 1
-    max: 150
-    step: 10
-
-    
-# INPUT DATE TIME
-input_datetime:
-  alarm:
-    name: Time input
-    has_date: false
-    has_time: true
-
-    
+# volkswagen_carnet: !include components/volkswagen_carnet.yaml
+      
 # PLANT MONITORING
-plant:
-  Plante: 
-    sensors:
-      moisture: sensor.xiaomi_miflora_moisture
-      battery: sensor.xiaomi_miflora_battery_level
-      temperature: sensor.xiaomi_miflora_temperature
-      conductivity: sensor.xiaomi_miflora_soil_conductivity
-      brightness: sensor.xiaomi_miflora_illuminance
-    min_moisture: 20
-
-# BINARY SENSOR    
-binary_sensor:
-  # WASHING MACHINE SENSOR
-  - platform: template
-    sensors:
-      washing_machine:
-        friendly_name: "Vaskemaskin"
-        delay_off:
-          minutes: 2
-        value_template: >-
-          {{ states('sensor.pow1_power')|float > 1 }}
-      
-      pir_entry:
-        friendly_name: "PIR nede"
-        device_class: motion
-        value_template: "{{ is_state('light.entry', 'on') }}"
+plant: !include components/plant.yaml
   
-  # WORKDAY SENSOR
-  - platform: workday
-    country: "NO"
-    workdays: [mon, tue, wed, thu, fri]
-
 # INFLUXDB
-# influxdb:
-  # host: 192.168.1.160
-  # port: 8086
-  # database: homeassistant
-  # username: !secret influxdb_username
-  # password: !secret influxdb_password
-  # max_retries: 3
-  # default_measurement: state
-
-
+# influxdb: !include components/influxdb.yaml
+  
 # ALARM PANEL
-alarm_control_panel:
-  - platform: manual
-    name: Alarm
-    code: !secret alarm_code
-    trigger_time: 300
-    disarmed:
-      trigger_time: 0
-    armed_home:
-      delay_time: 0
-      pending_time: 0
-    armed_away:
-      delay_time: 60
-      pending_time: 30
-    triggered:
-      pending_time: 0
-      
+alarm_control_panel: !include components/alarm_control_panel.yaml
+
+
+
+### BASIC INCLUDES ###
+# LIGHTS
+light: !include components/lights.yaml
+# GROUPS
+group: !include groups.yaml
+# AUTOMATIONS
+automation: !include_dir_merge_list automations
+# SCRIPTS
+script: !include_dir_merge_named scripts
+# SENSORS
+sensor: !include_dir_merge_list sensors
+# BINARY SENSOR    
+binary_sensor: !include_dir_merge_list binary_sensors
+# SWITCHES
+switch: !include_dir_merge_list switches
+# INPUT SELECT  
+input_select: !include_dir_merge_named input_select
+# INPUT NUMBER    
+input_number: !include_dir_merge_named input_number

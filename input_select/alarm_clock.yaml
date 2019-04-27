@@ -1,0 +1,16 @@
+---
+#### Alarm clock ####
+alarm:
+  name: Når starter du
+  options:
+    - "Aldri"
+    # - "07.30"
+    - "08:00"
+    # - "08.30"
+    - "09:00"
+    # - "09.30"
+    # - "10.00"
+    # - "10.30"
+    # - "11.00"
+  initial: "08:00"
+  icon: mdi:alarm

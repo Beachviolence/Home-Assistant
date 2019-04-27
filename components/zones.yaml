@@ -1,0 +1,12 @@
+---
+#### Zones ####
+- name: Haakonsvern
+  latitude: !secret hos_latitude
+  longitude: !secret hos_longitude
+  radius: 500
+  icon: mdi:castle
+- name: SKSK
+  icon: mdi:school
+  latitude: !secret sksk_latitude
+  longitude: !secret sksk_longitude
+  radius: 300

@@ -1,0 +1,9 @@
+---
+#### Homekit ####
+filter:
+  include_entities:
+    - switch.vacuum
+    - script.vacuum_kitchen
+    - switch.sonoffpow2
+    - script.watchsmarttv
+    - script.reading_lamp

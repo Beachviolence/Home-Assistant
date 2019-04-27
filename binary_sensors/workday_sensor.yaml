@@ -1,0 +1,7 @@
+---
+#### Workday sensor ####
+  
+  ## Workday sensor ##
+  - platform: workday
+    country: "NO"
+    workdays: [mon, tue, wed, thu, fri]

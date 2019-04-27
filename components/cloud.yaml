@@ -1,0 +1,10 @@
+---
+#### Cloud ####
+alexa:
+  filter:
+    include_entities:
+      - switch.vacuum
+      - script.vacuum_kitchen
+      - switch.sonoffpow2
+      - switch.reading_lamp
+      - switch.sonoff2
