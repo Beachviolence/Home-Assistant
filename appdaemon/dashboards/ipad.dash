@@ -1,0 +1,209 @@
+##
+## Main arguments, all optional
+##
+title: Main Panel
+widget_dimensions: [120, 120]
+widget_size: [1, 1]
+widget_margins: [5, 5]
+columns: 6
+global_parameters:
+    use_comma: 0
+    precision: 1
+    use_hass_icon: 1
+    namespace: default
+    devices:
+      media_player:
+        step: 5
+clock:
+    widget_type: clock
+    widget_style: "font-size: 150%;"
+    time_style: "color: yellow;"
+    date_style: "color: white;"
+    time_format: "24hr"
+    date_format_options:
+      weekday: "short"
+      day: "numeric"
+      month: "numeric"
+      
+sn1_temperature:
+    widget_type: sensor
+    title: Temperatur
+    title2: Stue
+    units: "&deg;C"
+    precision: 0
+    entity: sensor.livingroom_temperature
+    sub_entity: sensor.livingroom_humidity
+    
+sn2_temperature:
+    widget_type: sensor
+    title: Temperatur
+    title2: Soverom
+    units: "&deg;C"
+    precision: 0
+    entity: sensor.bedroom_temperature
+    sub_entity: sensor.bedroom_humidity
+    
+wind:
+    widget_type: sensor
+    title: Vind
+    entity: sensor.weather_wind_speed
+    sub_entity: sensor.weather_wind_direction
+    
+media_player1:
+    widget_type: media_player
+    title: Kjøkken
+    entity: media_player.kitchen
+    widget_style: "font-size: 100%;"
+media_player2:
+    widget_type: media_player
+    title: Bad
+    entity: media_player.bathroom
+media_player3:
+    widget_type: media_player
+    title: Soverom
+    entity: media_player.soverom
+    
+livingroom_lights:
+    widget_type: light
+    title: Stuelys
+    widget_style: "font-size: 120%;"
+    entity: light.livingroom_lights
+    
+bedroom_lights:
+    widget_type: light
+    title: Soverom
+    title2: Simon
+    entity: light.bedroom_lights
+
+toras_lights:
+    widget_type: light
+    title: Soverom
+    title2: Tora
+    entity: light.toras_lights
+    
+track_simon:
+    widget_type: device_tracker
+    title: Simon
+    entity: device_tracker.simonsiniphone7_2
+
+track_julie:
+    widget_type: device_tracker
+    title: Julie
+    entity: device_tracker.julie_sin_iphone
+
+track_tora:
+    widget_type: device_tracker
+    title: Tora
+    entity: device_tracker.torasiniphone
+    
+vacuum:
+    widget_type: switch
+    title: Støvsuger
+    entity: switch.vacuum
+vacuum_kitchen:
+    widget_type: script
+    title: Kjøkken
+    entity: script.vacuum_kitchen
+vacuum_weekdays:
+    widget_type: automation
+    title: Ukedager
+    entity: automation.vacuum_weekdays
+    
+weathersymbol:
+    widget_type: entitypicture
+    title: Vær
+    entity: sensor.weather_symbol
+    image_style: "font-size: 50%;"
+    
+all_sonos:
+    widget_type: script
+    title: Sonos
+    title2: All
+    entity: script.all_sonos
+    
+kb_sonos:
+    widget_type: script
+    title: Sonos
+    title2: Kitchen/bathroom
+    entity: script.kb_sonos
+    
+main:
+    widget_type: script
+    title: Sonos
+    title2: Main
+    entity: script.play_main
+    
+rock:
+    widget_type: script
+    title: Sonos
+    title2: Rock
+    entity: script.play_rock
+    
+chill:
+    widget_type: script
+    title: Sonos
+    title2: Chill
+    entity: script.play_chill
+
+relax:
+    widget_type: script
+    title: Relax
+    entity: script.relax
+
+everyday:
+    widget_type: script
+    title: Everyday
+    entity: script.everyday
+
+radio:
+    widget_type: switch
+    entity: switch.sonoff2
+    title: Radio
+
+leselys:
+    widget_type: switch
+    entity: switch.reading_lamp
+    title: Leselys
+    
+chromecast:
+    widget_type: script
+    entity: script.watchsmarttv
+    title: Chromecast
+appletv:
+    widget_type: script
+    entity: script.watchappletv
+    title: Apple TV
+playstation:
+    widget_type: script
+    entity: script.playstation
+    title: Playstation
+reload:
+    widget_type: reload
+    title: Reload
+    icon_active: mdi-reload
+    icon_inactive: mdi-reload
+    icon_inactive_style: "color:gray"
+    
+HA:
+    widget_type: navigate
+    title: Home Assistant
+    url: http://192.168.1.160:8123
+    icon_active: mdi-home-assistant
+    icon_inactive: mdi-home-assistant
+    icon_inactive_style: "color:gray"
+yr:
+    widget_type: navigate
+    title: Yr
+    url: https://www.yr.no/sted/Norge/Hordaland/Bergen/Bergen/
+    icon_active: mdi-weather-partlycloudy
+    icon_inactive: mdi-weather-partlycloudy
+    icon_inactive_style: "color:gray"
+
+layout:
+  - clock (2x1), track_simon, track_julie, track_tora, device_tracker.wvwzzzauzfw911702
+  - weathersymbol, sensor.weather_temperature, wind, sn1_temperature, sn2_temperature, yr
+  - livingroom_lights (1x1), bedroom_lights, toras_lights, leselys, relax, everyday
+  - chromecast, appletv, playstation, script.turnofftv, script.volume_down, script.volume_up
+  - vacuum (2x1), vacuum_kitchen, HA (2x1), reload
+  - kb_sonos (2x1), all_sonos, main, rock, chill
+  - media_player1 (2x2), media_player2 (2x2), media_player3 (2x2)
