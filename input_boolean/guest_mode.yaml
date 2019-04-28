@@ -1,0 +1,7 @@
+---
+#### Guest mode ####
+
+guest_mode:
+  name: Gjestemodus
+  initial: off
+  icon: mdi:account-group

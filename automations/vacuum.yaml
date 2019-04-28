@@ -13,6 +13,10 @@
     state: 'on'
   - condition: template
     value_template: '{{ states("device_tracker.simonsiniphone7_2") != "home" }}'
+  # - condition: template
+    # value_template: '{{ states("device_tracker.torasiniphone") != "home" }}'
+  # - condition: template
+    # value_template: '{{ states("input_boolean.guest_mode") = "off" }}'
   action:
   - data:
       entity_id: switch.vacuum

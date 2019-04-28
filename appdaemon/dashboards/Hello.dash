@@ -12,3 +12,4 @@ label:
     
 layout:
     - label(2x2)
+    - alarm_control_panel.alarm (2x2)

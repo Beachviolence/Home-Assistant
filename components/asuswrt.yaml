@@ -1,0 +1,15 @@
+---
+#### Asus WRT router ####
+
+host: 192.168.1.1
+username: !secret router_username
+password: !secret router_password
+#ssh_key: docs/router_privkey.ppk
+protocol: ssh
+port: 22
+mode: router
+sensors:
+  - upload
+  - download
+  - upload_speed
+  - download_speed

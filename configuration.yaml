@@ -54,7 +54,9 @@ vacuum: !include components/vacuum.yaml
 panel_iframe: !include components/panel_iframe.yaml
 
 # TRACKING
-device_tracker: !include components/device_tracker.yaml
+#device_tracker: !include components/device_tracker.yaml
+# ASUSWRT ROUTER
+asuswrt: !include components/asuswrt.yaml
 
 # HOMEKIT    
 homekit: !include components/homekit.yaml
@@ -92,3 +94,5 @@ switch: !include_dir_merge_list switches
 input_select: !include_dir_merge_named input_select
 # INPUT NUMBER    
 input_number: !include_dir_merge_named input_number
+# INPUT BOOLEAN
+input_boolean: !include_dir_merge_named input_boolean

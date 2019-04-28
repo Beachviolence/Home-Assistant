@@ -1,0 +1,35 @@
+---
+########## OFFICE FANE #############
+title: Office
+icon: mdi:monitor
+cards:
+  
+  ## Wake on LAN ##
+  - type: entity-button
+    entity: switch.wake_on_lan
+    name: Wake on LAN
+    tap_action:
+      action: toggle
+      
+  ##  Internet speed monitor ##
+  - type: gauge
+    entity: sensor.asuswrt_download_speed
+    name: Download speed
+  - type: gauge
+    entity: sensor.asuswrt_upload_speed
+    name: Upload speed
+  - type: history-graph
+    title: 'Internet speed'
+    entities:
+      - sensor.asuswrt_download_speed
+      - sensor.asuswrt_upload_speed
+  
+  - type: vertical-stack
+    cards:
+  ## Total downloaded/uploaded ##
+      - type: gauge
+        entity: sensor.asuswrt_download
+        name: Download
+      - type: gauge
+        entity: sensor.asuswrt_upload
+        name: Upload

@@ -6,7 +6,7 @@ cards:
   ## TRACKERS ##
   - type: glance
     entities:
-      - entity: device_tracker.simonsiniphone7_2
+      - entity: device_tracker.simon_sin_iphone_7
         name: Simon
         icon: mdi:human-handsup
       - entity: device_tracker.julie_sin_iphone
@@ -15,9 +15,13 @@ cards:
       - entity: device_tracker.torasiniphone
         name: Tora
         icon: mdi:human-pregnant
-      - entity: device_tracker.wvwzzzauzfw911702
-        name: VW
-        icon: mdi:car
+      - entity: input_boolean.guest_mode
+        name: Gjester
+        tap_action:
+          action: toggle
+      # - entity: device_tracker.wvwzzzauzfw911702
+      #   name: VW
+      #   icon: mdi:car
         
   ## LIGHTS ###      
   - type: horizontal-stack

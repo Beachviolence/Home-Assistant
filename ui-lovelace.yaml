@@ -14,5 +14,6 @@ views:
   - !include lovelace/views/home.yaml
   - !include lovelace/views/livingroom.yaml
   - !include lovelace/views/bedroom.yaml
+  - !include lovelace/views/office.yaml
   - !include lovelace/views/map.yaml
   - !include lovelace/views/test.yaml

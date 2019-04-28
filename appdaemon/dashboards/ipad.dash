@@ -200,7 +200,7 @@ yr:
     icon_inactive_style: "color:gray"
 
 layout:
-  - clock (2x1), track_simon, track_julie, track_tora, device_tracker.wvwzzzauzfw911702
+  - clock (2x1), track_simon, track_julie, track_tora, input_boolean.guest_mode
   - weathersymbol, sensor.weather_temperature, wind, sn1_temperature, sn2_temperature, yr
   - livingroom_lights (1x1), bedroom_lights, toras_lights, leselys, relax, everyday
   - chromecast, appletv, playstation, script.turnofftv, script.volume_down, script.volume_up

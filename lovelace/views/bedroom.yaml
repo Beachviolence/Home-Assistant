@@ -34,6 +34,8 @@ cards:
           action: toggle
       - entity: sensor.bedroom_temperature
         name: Temperatur
+      - entity: sensor.bedroom_humidity
+        name: Fuktighet
       - entity: automation.bedroom_heater_on_before_bed
         name: Varme kveld
         icon: mdi:calendar-clock
