@@ -12,7 +12,7 @@ cards:
       - entity: device_tracker.julie_sin_iphone
         name: Julie
         icon: mdi:human-female
-      - entity: device_tracker.torasiniphone
+      - entity: device_tracker.tora_sin_iphone
         name: Tora
         icon: mdi:human-pregnant
       - entity: input_boolean.guest_mode
@@ -167,5 +167,3 @@ cards:
           - entity_id: media_player.soverom
             name: Soverom
             
-  - type: alarm-panel
-    entity: alarm_control_panel.alarm

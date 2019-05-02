@@ -1,0 +1,6 @@
+---
+### CAMERAS ###
+- platform: mjpeg
+  name: Wyzecam
+  still_image_url: !secret camera_still_url
+  mjpeg_url: !secret camera_mjpeg_url

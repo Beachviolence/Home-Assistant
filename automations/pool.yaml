@@ -1,0 +1,19 @@
+---
+#### Pool monitoring ####
+- id: '1556819256847'
+  alias: Basseng varsling
+  trigger:
+  - below: '1000'
+    entity_id: sensor.sonoffpow2_energy_power
+    platform: numeric_state
+  condition:
+  - condition: state
+    entity_id: switch.sonoffpow2
+    state: 'on'
+  action:
+  - data:
+      message: Den er nådd måltemperaturen
+      title: Jacuzzi
+    service: notify.ios_simon_sin_iphone_7
+    
+  

@@ -84,7 +84,7 @@ toras_lights:
 track_simon:
     widget_type: device_tracker
     title: Simon
-    entity: device_tracker.simonsiniphone7_2
+    entity: device_tracker.simon_sin_iphone_7
 
 track_julie:
     widget_type: device_tracker
@@ -94,7 +94,7 @@ track_julie:
 track_tora:
     widget_type: device_tracker
     title: Tora
-    entity: device_tracker.torasiniphone
+    entity: device_tracker.tora_sin_iphone
     
 vacuum:
     widget_type: switch

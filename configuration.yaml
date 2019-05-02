@@ -73,6 +73,9 @@ plant: !include components/plant.yaml
 # ALARM PANEL
 alarm_control_panel: !include components/alarm_control_panel.yaml
 
+# CAMERAS
+camera: !include components/cameras.yaml
+
 
 
 ### BASIC INCLUDES ###

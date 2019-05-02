@@ -1,0 +1,24 @@
+---
+########## SECURITY FANE #############
+title: Security
+icon: mdi:shield-home
+cards:
+  ## ALARM PANEL ##
+  - type: alarm-panel
+    entity: alarm_control_panel.alarm
+  
+  - type: vertical-stack
+    cards:  
+    
+      ## WYZE CAMERA ##
+      - type: 'custom:camera-card'
+        entity: camera.wyzecam
+        name: Wyzecam
+        
+      ## MOTION SENSORS ##
+      - type: history-graph
+        title: Bevegelsessensorer
+        entities: 
+          - binary_sensor.pir_entry
+          - binary_sensor.pir_upstairs
+        hours_to_show: 24

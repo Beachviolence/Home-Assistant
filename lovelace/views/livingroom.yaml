@@ -127,9 +127,9 @@ cards:
     cards:
     ## OUTDOOR LIGHTING ##
     - type: glance
-      title: Utelys
+      title: Terasse
       entities:
-        - entity: switch.sonoffpow2
+        - entity: switch.sonoff1
           name: Stemningslys
           icon: mdi:lightbulb-on
           tap_action:
@@ -140,7 +140,9 @@ cards:
             action: toggle
         - entity: input_select.holiday_led_effect
           name: Effect
-        - entity: input_number.animation_speed
+        - entity: sensor.sonoffpow2_energy_today
+          name: kWh Basseng
+          icon: mdi:power-plug
         
     ## PLANT MONITORING ##
     - type: plant-status
