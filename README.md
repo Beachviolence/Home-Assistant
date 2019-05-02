@@ -8,6 +8,7 @@ security.
 
 - IKEA Trådfri hub
 - SONOFF Basic and POWs running Tasmota firmware
+- SONOFF RF with Tasmota and magnetic sensors on doors
 - Various ESP8266 and ESP32's with LED strips, temp/hum sensors and PIR sensors
 - WYZE cam
 - Logitech Harmony Hub
@@ -25,8 +26,8 @@ security.
 
 # Screenshots from frontend
 
-## Frontend
-![alt text](https://github.com/Beachviolence/Home-Assistant/blob/master/docs/Hjem.PNG?raw=true)
+## Home
+![alt text](https://github.com/Beachviolence/Home-Assistant/blob/master/docs/home.PNG?raw=true)
 
 ## Livingroom
 ![alt text](https://github.com/Beachviolence/Home-Assistant/blob/master/docs/stue.PNG?raw=true)
@@ -34,8 +35,11 @@ security.
 ## Bedroom
 ![alt text](https://github.com/Beachviolence/Home-Assistant/blob/master/docs/soverom.PNG?raw=true)
 
+## Security
+![alt text](https://github.com/Beachviolence/Home-Assistant/blob/master/docs/security.PNG?raw=true)
+
 ## Map
-![alt text](https://github.com/Beachviolence/Home-Assistant/blob/master/docs/Kart.PNG?raw=true)
+![alt text](https://github.com/Beachviolence/Home-Assistant/blob/master/docs/map.PNG?raw=true)
 
 ## HAdashboard with Appdeamon
 ![alt text](https://github.com/Beachviolence/Home-Assistant/blob/master/docs/iPad.PNG?raw=true)
