@@ -57,6 +57,7 @@ panel_iframe: !include components/panel_iframe.yaml
 #device_tracker: !include components/device_tracker.yaml
 # ASUSWRT ROUTER
 asuswrt: !include components/asuswrt.yaml
+person: !include components/persons.yaml
 
 # HOMEKIT    
 homekit: !include components/homekit.yaml
@@ -76,7 +77,8 @@ alarm_control_panel: !include components/alarm_control_panel.yaml
 # CAMERAS
 camera: !include components/cameras.yaml
 
-
+# Custom updater
+custom_updater: !include components/custom_updater.yaml
 
 ### BASIC INCLUDES ###
 # LIGHTS

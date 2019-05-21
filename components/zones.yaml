@@ -10,3 +10,12 @@
   latitude: !secret sksk_latitude
   longitude: !secret sksk_longitude
   radius: 300
+- name: Rena
+  icon: mdi:city
+  latitude: !secret rena_latitude
+  longitude: !secret rena_longitude
+  radius: 5000
+- name: Trondheim
+  icon: mdi:city
+  latitude: !secret trd_latitude
+  longitude: !secret trd_longitude

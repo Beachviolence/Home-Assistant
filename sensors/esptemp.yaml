@@ -1,0 +1,8 @@
+---
+#### MQTT ESP Temperatur monitor ####
+- platform: mqtt
+  state_topic: "sensor/temperature"
+  name: "Temperature"
+  qos: 0
+  unit_of_measurement: "°C"
+  value_template: '{{ payload }}'

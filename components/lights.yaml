@@ -1,3 +1,4 @@
+---
 #### LIGHTS ####
 
 # LIVINGROOM SPOTS
@@ -51,3 +52,104 @@
   brightness_state_topic: "bruh/mqttstrip/setbrightnesspub"
   brightness_command_topic: "bruh/mqttstrip/setbrightness"
   optimistic: false
+  
+
+- platform: mqtt 
+  schema: json
+  name: "PinkyLEDs"
+  command_topic: "cmnd/PinkyLEDs"
+  state_topic: "stat/PinkyLEDs"
+  availability_topic: "LWT/PinkyLEDs"
+  payload_available:  "Online"
+  payload_not_available: "Offline"
+  white_value: true
+  optimistic: false
+  rgb: true
+  flash_time_short: 1
+  flash_time_long: 5
+  brightness: true
+  effect: true
+  effect_list:
+    - "Confetti"
+    - "Glitter"
+    - "Juggle"
+    - "Sinelon"
+    - "Solid"
+    - "Christmas"
+    - "Candy Cane"
+    - "Holly Jolly"
+    - "Valentine"
+    - "Lovey Day"
+    - "St Patty"
+    - "Easter"
+    - "USA"
+    - "Independence"
+    - "Go Blue"
+    - "Hail"
+    - "Touchdown"
+    - "Halloween"
+    - "Punkin"
+    - "Thanksgiving"
+    - "Turkey Day"
+    - "BPM"
+    - "Cyclon Rainbow"
+    - "Dots"
+    - "Fire"
+    - "Lightning"
+    - "Police All"
+    - "Police One"
+    - "Rainbow"
+    - "Glitter Rainbow"
+    - "Ripple"
+    - "Twinkle"
+    - "E131"
+
+- platform: mqtt 
+  schema: json
+  name: "PinkyLED2"
+  command_topic: "cmnd/PinkyLED2"
+  state_topic: "stat/PinkyLED2"
+  availability_topic: "LWT/PinkyLED2"
+  payload_available:  "Online"
+  payload_not_available: "Offline"
+  white_value: true
+  optimistic: false
+  rgb: true
+  flash_time_short: 1
+  flash_time_long: 5
+  brightness: true
+  effect: true
+  effect_list:
+    - "Confetti"
+    - "Glitter"
+    - "Juggle"
+    - "Sinelon"
+    - "Solid"
+    - "Christmas"
+    - "Candy Cane"
+    - "Holly Jolly"
+    - "Valentine"
+    - "Lovey Day"
+    - "St Patty"
+    - "Easter"
+    - "USA"
+    - "Independence"
+    - "Go Blue"
+    - "Hail"
+    - "Touchdown"
+    - "Halloween"
+    - "Punkin"
+    - "Thanksgiving"
+    - "Turkey Day"
+    - "BPM"
+    - "Cyclon Rainbow"
+    - "Dots"
+    - "Fire"
+    - "Lightning"
+    - "Police All"
+    - "Police One"
+    - "Rainbow"
+    - "Glitter Rainbow"
+    - "Ripple"
+    - "Twinkle"
+    - "E131"

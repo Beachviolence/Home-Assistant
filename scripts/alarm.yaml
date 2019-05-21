@@ -6,7 +6,7 @@ turn_off_alarm:
   alias: Turn off alarm
   sequence:
   - data:
-      entity_id: light.holiday_lights
+      entity_id: light.pinkyleds
     service: light.turn_off
   - data:
       entity_id: media_player.kitchen

@@ -1,0 +1,19 @@
+---
+#### SONOFF RF Bridge sensors ####
+- platform: mqtt
+  name: "Soveromsvindu"
+  state_topic: "tele/RF_Bridge/RESULT"
+  value_template: '{{value_json.RfReceived.Data}}'
+  payload_on: "D04E0A"
+  payload_off: "D04E0E"
+  device_class: Door
+  qos: 1
+
+- platform: mqtt
+  name: "Terassedør"
+  state_topic: "tele/RF_Bridge/RESULT"
+  value_template: '{{value_json.RfReceived.Data}}'
+  payload_on: "D0850A"
+  payload_off: "D0850E"
+  device_class: Door
+  qos: 1

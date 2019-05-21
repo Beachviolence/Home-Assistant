@@ -2,7 +2,7 @@
 title: Stue
 icon: mdi:sofa
 cards:
-
+  
   ## FIRST ROW ##
   - type: vertical-stack
     cards:
@@ -73,6 +73,10 @@ cards:
               name: Turn off
               tap_action: 
                 action: toggle
+            - entity: light.neopixel_light
+              name: Ambient
+              tap_action:
+                action: toggle
           show_state: false
     
     
@@ -129,24 +133,36 @@ cards:
     - type: glance
       title: Terasse
       entities:
+        - entity: binary_sensor.terassedor
+          name: Dør
         - entity: switch.sonoff1
           name: Stemningslys
           icon: mdi:lightbulb-on
           tap_action:
             action: toggle
-        - entity: light.holiday_lights
+        - entity: light.pinkyled2
           name: LED
           tap_action:
             action: toggle
-        - entity: input_select.holiday_led_effect
-          name: Effect
-        - entity: sensor.sonoffpow2_energy_today
+        - entity: sensor.pow2_today
           name: kWh Basseng
           icon: mdi:power-plug
-        
-    ## PLANT MONITORING ##
-    - type: plant-status
-      entity: plant.plante
+    
+    - type: horizontal-stack
+      cards:
+        ## PLANT MONITORING ##
+        - type: plant-status
+          entity: plant.plante
+        # - type: glance
+        #   title: Plante 
+        #   show_name: false
+        #   entities:
+        #     - sensor.xiaomi_miflora_moisture
+        #     - sensor.xiaomi_miflora_temperature
+        #     - sensor.xiaomi_miflora_illuminance
+        #     - sensor.xiaomi_miflora_soil_conductivity
+        - type: entity-button
+          entity: binary_sensor.washing_machine
       
     ## SONOS MEDIA CONTROL ##
     - type: vertical-stack

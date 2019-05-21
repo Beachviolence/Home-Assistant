@@ -11,9 +11,9 @@ cards:
     cards:  
     
       ## WYZE CAMERA ##
-      - type: 'custom:camera-card'
+      - type: picture-entity
         entity: camera.wyzecam
-        name: Wyzecam
+        camera_view: live
         
       ## MOTION SENSORS ##
       - type: history-graph

@@ -24,7 +24,7 @@
 - id: '1549906953663'
   alias: Radiolights on
   trigger:
-  - entity_id: light.livingroom_lights
+  - entity_id: light.kommode
     from: 'off'
     platform: state
     to: 'on'
@@ -37,7 +37,7 @@
 - id: '1549907033692'
   alias: Radiolights off
   trigger:
-  - entity_id: light.livingroom_lights
+  - entity_id: light.kommode
     from: 'on'
     platform: state
     to: 'off'

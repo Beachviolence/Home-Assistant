@@ -9,7 +9,7 @@
   qos: 1
   payload_on: "ON"
   payload_off: "OFF"
-  retain: true
+  #retain: true
   
 ## SONOFF BASIC 2 ##
 - platform: mqtt
@@ -19,7 +19,7 @@
   qos: 1
   payload_on: "ON"
   payload_off: "OFF"
-  retain: true
+  #retain: true
   
 ## SONOFF POW 1 ##
 - platform: mqtt
@@ -29,7 +29,7 @@
   qos: 1
   payload_on: "ON"
   payload_off: "OFF"
-  retain: true  
+  #retain: true  
 
 ## SONOFF POW 2 ##
 - platform: mqtt
@@ -39,4 +39,4 @@
   qos: 1
   payload_on: "ON"
   payload_off: "OFF"
-  retain: true
+  #retain: true

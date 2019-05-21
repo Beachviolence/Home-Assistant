@@ -14,3 +14,15 @@ push:
         - identifier: 'STOP_ALARM'
           title: 'Stop alarm'
           destructive: false
+    
+    - name: cameras
+      identifier: 'camera'
+      actions:
+        - identifier: 'SOUND_ALARM'
+          title: 'Trigger Alarm'
+          destructive: true 
+        - identifier: 'TTS_MESSAGE'
+          title: 'Alexa TTS Message'
+          behavior: 'textInput'
+          textInputButtonTitle: 'Send TTS'
+          textInputPlaceholder: 'Hvem der?'

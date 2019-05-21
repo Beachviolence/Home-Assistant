@@ -14,32 +14,14 @@ logger:
 api:
 
 ota:
-
+      
 light:
-  - platform: fastled_clockless
-    chipset: WS2811
+  - platform: neopixelbus
     pin: GPIO3
-    rgb_order: BRG
-    num_leds: 100
-    name: "FastLED WS2811 Light"
-    effects:
-      - random:
-      - strobe:
-      - flicker:
-      - addressable_rainbow:
-      - addressable_color_wipe:
-      - addressable_scan:
-      - addressable_twinkle:
-      - addressable_random_twinkle:
-      - addressable_fireworks:
-      - addressable_flicker:
-#light:
-#  - platform: neopixelbus
-#    pin: GPIO3
-#    num_leds: 12
-#    variant: WS2812
-#    method: ESP8266_DMA
-#    name: "NeoPixel Light"
+    num_leds: 12
+    variant: WS2812
+    method: ESP8266_DMA
+    name: "NeoPixel Light"
     
 #binary_sensor:
 #  - platform: gpio

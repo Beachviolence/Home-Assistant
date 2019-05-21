@@ -17,7 +17,7 @@
     
     ## VACUUM WEEKDAYS ##
     vacuum_weekdays:
-      friendly_name: Støvug ukedager
+      friendly_name: Støvsug ukedager
       value_template: "{{ is_state('automation.vacuum_weekdays', 'on') }}"
       turn_on:
         service: automation.turn_on

@@ -53,6 +53,6 @@ cards:
       name: Sonoff 2
     - entity: switch.wake_on_lan
       name: PC
-      
-  - type: alarm-panel
-    entity: alarm_control_panel.alarm
+  
+  - type: custom:tracker-card
+    

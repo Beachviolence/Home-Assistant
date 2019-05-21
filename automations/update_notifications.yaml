@@ -1,0 +1,16 @@
+---
+#### HA update notifications ####
+- id: 'update8123984'
+  alias: Update notifications
+  trigger:
+  - platform: state
+    entity_id: updater.updater
+  action:
+  - service: notify.ios_simon_sin_iphone_7
+    data_template: 
+      title: 'New Home Assistant Release!'
+      message: "Home Assistant  {{ states.updater.updater.state }}  is now available."
+  - service: persistent_notification.create
+    data_template:
+      title: 'New Home Assistant Release!'
+      message: "Home Assistant  {{ states.updater.updater.state }}  is now available."

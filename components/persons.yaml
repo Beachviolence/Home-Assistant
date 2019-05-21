@@ -1,0 +1,16 @@
+---
+#### Persons ####
+- name: Simon
+  id: simon1996
+  device_trackers:
+    - device_tracker.simonsiniphone7
+    - device_tracker.simon_sin_iphone_7
+- name: Julie
+  id: julie1934
+  device_trackers:
+    - device_tracker.julie_sin_iphone
+    - device_tracker.juliesiniphone
+- name: Tora
+  id: tora8174
+  device_trackers:
+    - device_tracker.tora_sin_iphone

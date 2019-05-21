@@ -4,12 +4,10 @@
   alias: Basseng varsling
   trigger:
   - below: '1000'
-    entity_id: sensor.sonoffpow2_energy_power
+    above: '1'
+    entity_id: sensor.pow1_power
     platform: numeric_state
-  condition:
-  - condition: state
-    entity_id: switch.sonoffpow2
-    state: 'on'
+  condition: []
   action:
   - data:
       message: Den er nådd måltemperaturen

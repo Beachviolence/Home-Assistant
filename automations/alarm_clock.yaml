@@ -14,6 +14,9 @@
   - condition: state
     entity_id: binary_sensor.workday_sensor
     state: 'on'
+  - condition: state
+    entity_id: person.simon
+    state: 'home'
   action:
   - data:
       entity_id: media_player.soverom
@@ -61,6 +64,9 @@
   - condition: state
     entity_id: binary_sensor.workday_sensor
     state: 'on'
+  - condition: state
+    entity_id: person.simon
+    state: 'home'
   action:
   - data:
       entity_id: media_player.soverom

@@ -35,27 +35,43 @@
       source: Alarm
     service: media_player.select_source
   - data:
-      entity_id: input_select.holiday_led_effect
-      option: Police All
-    service: input_select.select_option
+      entity_id: light.pinkyleds
+      effect: Police All
+    service: light.turn_on
     
 ## Phone alarm ##
 - id: '81293879176'
   alias: Alarm phone notify
   trigger:
-  - entity_id: binary_sensor.pir_entry
+  - platform: state
+    entity_id: binary_sensor.pir_entry
     from: 'off'
-    platform: state
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.pir_upstairs
+    from: 'off'
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.terassedor
+    from: 'off'
     to: 'on'
   condition:
-  - condition: state
-    entity_id: alarm_control_panel.alarm
-    state: alarmed_home
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: alarm_control_panel.alarm
+      state: armed_away
+    - condition: state
+      entity_id: alarm_control_panel.alarm
+      state: armed_home
   action:
   - data:
       data:
+        attachment:
+          content-type: jpeg
         push:
-          category: alarm_triggered
+          category: camera
+        entity_id: camera.wyzecam
       message: Alarmen er utløst
       title: ALARM
     service: notify.ios_simon_sin_iphone_7
@@ -95,9 +111,9 @@
       source: Alarm
     service: media_player.select_source
   - data:
-      entity_id: input_select.holiday_led_effect
-      option: Police All
-    service: input_select.select_option
+      entity_id: light.pinkyleds
+      effect: Police All
+    service: light.turn_on
     
 ## Turn off alarm ##
 - id: '817937499029'
@@ -109,3 +125,47 @@
       actionName: STOP_ALARM
   action:
   - service: script.turn_off_alarm
+
+## TTS from notification ##
+- id: 'TTS12823415'
+  alias: notificationTTSbutton
+  trigger:
+    platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: TTS_MESSAGE
+  action:
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.kitchen
+      volume_level: 0.4
+  - service: tts.google_say
+    entity_id: media_player.kitchen
+    data_template:
+      message: '{{ trigger.event.data["textInput"] }}'
+  
+  
+
+## Notify when motion detected on camera ##
+# - alias: motion detected send notification and light
+#   id: fijetgue54ijtgiouf45u690uegncvbmnvbdf
+#   trigger:
+#     - platform: webhook
+#       webhook_id: back_yard_cam_motion
+#   condition:
+#     - condition: state
+#       entity_id: device_tracker.drzzs
+#       state:  home
+#   action:
+#     - service: notify.ios_justin_iphone7
+#       data:
+#         title: ALERT
+#         message: Someone is moving in the backyard
+#         data: 
+#           attachment:
+#             content-type: jpeg
+#           push:
+#             category: camera
+#           entity_id: camera.silverptz
+#     - service: switch.turn_on
+#       entity_id: switch.back_porch
