@@ -8,11 +8,11 @@ all_sonos:
   - data:
       entity_id: media_player.soverom
       master: media_player.kitchen
-    service: media_player.sonos_join
+    service: sonos.join
   - data:
       entity_id: media_player.bathroom
       master: media_player.kitchen
-    service: media_player.sonos_join
+    service: sonos.join
   - data:
       entity_id: media_player.kitchen
       volume_level: 0.25
@@ -33,7 +33,7 @@ kb_sonos:
   - data:
       entity_id: media_player.bathroom
       master: media_player.kitchen
-    service: media_player.sonos_join
+    service: sonos.join
   - data:
       entity_id: media_player.kitchen
       volume_level: 0.2
