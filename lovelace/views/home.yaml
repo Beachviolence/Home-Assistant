@@ -15,13 +15,12 @@ cards:
       - entity: device_tracker.tora_sin_iphone
         name: Tora
         icon: mdi:human-pregnant
-      - entity: input_boolean.guest_mode
-        name: Gjester
-        tap_action:
-          action: toggle
-      # - entity: device_tracker.wvwzzzauzfw911702
-      #   name: VW
-      #   icon: mdi:car
+      - entity: device_tracker.wvwzzzauzfw911702
+        name: e-Golf
+      # - entity: input_boolean.guest_mode
+      #   name: Gjester
+      #   tap_action:
+      #     action: toggle
         
   ## LIGHTS ###      
   - type: horizontal-stack
@@ -43,32 +42,10 @@ cards:
     entities:
       - input_select.alarm
 
-      
- ## EGOLF KONTROLL ##
-  # - type: glance
-    # title: E-Golf
-    # show_header_toggle: false
-    # entities:
-      # - entity: switch.wvwzzzauzfw911702_charging
-        # tap_action: 
-          # action: toggle
-        # name: Lading
-      # - entity: switch.wvwzzzauzfw911702_climatisation
-        # tap_action: 
-          # action: toggle
-        # name: Klima
-      # - entity: switch.wvwzzzauzfw911702_window_heater
-        # tap_action: 
-          # action: toggle
-        # name: Vindu
-        # icon: mdi:snowflake
-      # - entity: sensor.wvwzzzauzfw911702_battery_level
-        # name: Batteri
         
   ## VACUUM ###      
   - type: glance
     title: "Støvsuger"
-    show_header_toggle: false
     show_state: false
     entities:
     - entity: switch.vacuum
@@ -95,11 +72,12 @@ cards:
   ## WEATHER SENSORS ##
   - type: glance
     title: "Vær"
-    show_header_toggle: true
+    show_name: false
     entities:
       - sensor.weather_temperature
       - sensor.weather_wind_speed
       - sensor.weather_wind_direction
+      - sensor.weather_symbol
       
   ## INDOOR CLIMATE SENSORS ##
   - type: glance
@@ -116,9 +94,35 @@ cards:
       name: Fuktighet Sove
       icon: mdi:water-percent
   
-  ## SONOS MEDIA CONTROL ##
+  ## FANE 3 ##
   - type: vertical-stack
     cards:
+    
+     ## EGOLF KONTROLL ##
+    # - type: glance
+    #   title: E-Golf
+    #   entities:
+    #     - entity: switch.wvwzzzauzfw911702_charging
+    #       tap_action: 
+    #         action: toggle
+    #       name: Lading
+    #     - entity: switch.wvwzzzauzfw911702_climatisation
+    #       tap_action: 
+    #         action: toggle
+    #       name: Klima
+    #     - entity: lock.wvwzzzauzfw911702_door_locked
+    #       name: Lås
+    #     - entity: sensor.wvwzzzauzfw911702_charging_time_left
+    #       name: Ladetid
+    #     # - entity: switch.wvwzzzauzfw911702_window_heater
+    #     #   tap_action: 
+    #     #     action: toggle
+    #     #   name: Vindu
+    #     #   icon: mdi:snowflake
+    #     - entity: sensor.wvwzzzauzfw911702_battery_level
+    #       name: Batteri
+
+      ## SONOS MEDIA CONTROL ##
     - type: custom:mini-media-player
       entity: media_player.kitchen
       icon: mdi:speaker-wireless
@@ -166,4 +170,117 @@ cards:
             name: Stue
           - entity_id: media_player.soverom
             name: Soverom
-            
+  
+  - type: vertical-stack
+    cards:
+  #START VW CAR IMAGE
+    - type: picture-elements
+      image: /local/egolf2.png
+      elements:
+
+  #State images to illustrate on top of car
+        # - type: image
+        #   entity: switch.wvwzzzauzfw911702_climatisation
+        #   image: /local/blank.png
+        #   style:
+        #     top: 39.5%
+        #     left: 55%
+        #     width: 43%
+        #   state_image:
+        #     "on": /local/passat_heat.png
+
+        # - type: image
+        #   entity: binary_sensor.wvwzzzauzfw911702_external_power
+        #   image: /local/blank.png
+        #   style:
+        #     top: 62.8%
+        #     left: 21.2%
+        #     width: 43%
+        #   state_image:
+        #     "on": /local/passatcharging.png
+
+        - type: image
+          entity: binary_sensor.wvwzzzauzfw911702_parking_light
+          image: /local/blank.png
+          style:
+            top: 63.8%
+            left: 44.2%
+            width: 33%
+          state_image:
+            "on": /local/passat_light.png
+
+        # - type: image
+        #   entity: lock.wvwzzzauzfw911702_doors_locked
+        #   image: /local/blank.png
+        #   style:
+        #     top: 42.3%
+        #     left: 57%
+        #     width: 2%
+        #   state_image:
+        #     locked: /local/blink.gif
+
+  # Top left row with state icons
+
+        - type: state-icon
+          entity: lock.wvwzzzauzfw911702_door_locked
+          style:
+            top: 87%
+            left: 47%
+
+        - type: state-icon
+          entity: switch.wvwzzzauzfw911702_climatisation
+          tap_action: toggle
+          style:
+            top: 87%
+            left: 58%
+
+        - type: state-icon
+          entity: switch.wvwzzzauzfw911702_window_heater
+          tap_action: toggle
+          style:
+            top: 87%
+            left: 69%
+
+        - type: state-icon
+          entity: binary_sensor.wvwzzzauzfw911702_external_power
+          icon: mdi:power-plug
+          style:
+            top: 87%
+            left: 36%
+
+        - type: state-label
+          entity: sensor.wvwzzzauzfw911702_electric_range
+          style:
+            top: 10%
+            left: 10%
+
+  #Top right icons
+        - type: state-icon
+          entity: switch.wvwzzzauzfw911702_charging
+          style:
+            top: 87%
+            left: 80%
+
+        - type: state-label
+          entity: sensor.wvwzzzauzfw911702_battery_level
+          style:
+            top: 96%
+            left: 81%
+
+        - type: state-icon
+          entity: sensor.wvwzzzauzfw911702_charging_time_left
+          style:
+            top: 87%
+            left: 91%
+
+        - type: state-label
+          entity: sensor.wvwzzzauzfw911702_fuel_level
+          style:
+            top: 96%
+            left: 92%
+
+
+  #END VW IMAGE CARD
+          
+    - type: entity-button
+      entity: binary_sensor.washing_machine

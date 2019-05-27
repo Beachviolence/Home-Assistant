@@ -1,7 +1,9 @@
 ---
 #### VW carnet ####
 
-# username: !secret carnet_id
-# password: !secret carnet_password
-# update_interval: 
-  # minutes: 5 
+username: !secret carnet_id
+password: !secret carnet_password
+scan_interval: 
+  minutes: 5
+name:
+  wvw1234567812356: 'E-Golf'

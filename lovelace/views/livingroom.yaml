@@ -161,8 +161,7 @@ cards:
         #     - sensor.xiaomi_miflora_temperature
         #     - sensor.xiaomi_miflora_illuminance
         #     - sensor.xiaomi_miflora_soil_conductivity
-        - type: entity-button
-          entity: binary_sensor.washing_machine
+        
       
     ## SONOS MEDIA CONTROL ##
     - type: vertical-stack

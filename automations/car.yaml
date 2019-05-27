@@ -1,0 +1,32 @@
+---
+#### Car automations ####
+
+- id: '1558994586383'
+  alias: Car charged
+  trigger:
+  - above: '99'
+    entity_id: sensor.wvwzzzauzfw911702_battery_level
+    platform: numeric_state
+  condition:
+  - condition: state
+    entity_id: binary_sensor.wvwzzzauzfw911702_external_power
+    state: 'on'
+  action:
+  - data:
+      message: Bilen er ladet 100%
+      title: E-Golf
+    service: notify.ios_simon_sin_iphone_7
+
+- id: '1558994807943'
+  alias: Car climatisation on
+  trigger:
+  - entity_id: switch.wvwzzzauzfw911702_climatisation
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+  - data:
+      message: Klimaanlegget er på
+      title: E-Golf
+    service: notify.ios_simon_sin_iphone_7

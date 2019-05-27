@@ -63,8 +63,8 @@ person: !include components/persons.yaml
 homekit: !include components/homekit.yaml
    
 # VW CAR
-# volkswagen_carnet: !include components/volkswagen_carnet.yaml
-      
+volkswagencarnet: !include components/volkswagen_carnet.yaml
+
 # PLANT MONITORING
 plant: !include components/plant.yaml
   
