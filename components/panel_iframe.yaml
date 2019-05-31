@@ -2,10 +2,10 @@
 #### iFrame ####
 
 ## ESP Home ##
-esphome:
-  title: ESPHome
-  icon: mdi:chip
-  url: !secret esphome_url
+# esphome:
+#   title: ESPHome
+#   icon: mdi:chip
+#   url: !secret esphome_url
   
 ## TasmoAdmin ##
 tasmoadmin:

@@ -1,0 +1,19 @@
+---
+#### Climate/Thermostat ####
+- platform: generic_thermostat
+  name: Soverom
+  heater: switch.tradfri_control_outlet
+  target_sensor: sensor.bedroom_temperature
+  min_temp: 15
+  max_temp: 23
+  away_temp: 15
+  ac_mode: false
+
+- platform: generic_thermostat
+  name: Stue
+  heater: switch.sonoffpow2
+  target_sensor: sensor.livingroom_temperature
+  min_temp: 15
+  max_temp: 23
+  away_temp: 15
+  ac_mode: false

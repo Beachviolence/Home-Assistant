@@ -41,6 +41,15 @@ cards:
         icon: mdi:calendar-clock
         tap_action: 
           action: toggle
+
+  ## Thermostat ##
+  - type: custom:simple-thermostat
+    entity: climate.soverom
+    step_size: 1
+    name: false
+    sensors:
+      - entity: sensor.bedroom_humidity
+        name: Fuktighet
           
   ## SONOS MEDIA CONTROL ##
   - type: custom:mini-media-player

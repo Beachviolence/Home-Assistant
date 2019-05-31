@@ -80,6 +80,9 @@ camera: !include components/cameras.yaml
 # Custom updater
 custom_updater: !include components/custom_updater.yaml
 
+# Climate/Thermostat
+climate: !include components/climate.yaml
+
 ### BASIC INCLUDES ###
 # LIGHTS
 light: !include components/lights.yaml
